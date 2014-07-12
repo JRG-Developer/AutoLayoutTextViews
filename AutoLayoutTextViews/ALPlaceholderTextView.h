@@ -25,10 +25,6 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  The `ALTextViewDelegate` protocol defines optional methods by which a delegate may be notified of `clear` or `done` pressed on the text view's `actionToolbar`.
- */
-
-/**
  *  `ALPlaceholderTextView` adds a placeholder to `UITextView`
  */
 @interface ALPlaceholderTextView : UITextView

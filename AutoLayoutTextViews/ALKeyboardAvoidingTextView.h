@@ -23,6 +23,7 @@
 //  THE SOFTWARE.
 
 #import "ALPlaceholderTextView.h"
+
 /**
  *  `ALKeyboardAvoidingTextView` adds keyboard avoiding functionality to `ALPlaceholderTextView`.
  */
