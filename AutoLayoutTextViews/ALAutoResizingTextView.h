@@ -35,9 +35,9 @@
 /**
  *	Tells the delegate that the text view's height is about to change.
  *
- *	@param	textView	The text view whose height is about to change.
- *	@param	oldHeight	The actual height of the text view's frame.
- *	@param	newHeight	The new height of the text view's frame.
+ *	@param	textView	The text view whose height is about to change
+ *	@param	oldHeight	The current height of the text view's frame
+ *	@param	newHeight	The new height of the text view's frame
  *
  *  @discussion This method gets called in the animation block.
  */
@@ -46,9 +46,9 @@
 /**
  *	Tells the delegate that the text view's height did change.
  *
- *	@param	textView	The text view whose height did change.
- *	@param	oldHeight	The actual height of the text view's frame.
- *	@param	newHeight	The new height of the text view's frame.
+ *	@param	textView	The text view whose height did change
+ *	@param	oldHeight	The previous height of the text view's frame
+ *	@param	newHeight	The new height of the text view's frame
  *
  *  @discussion This method gets called in the animation completion block.
  */
@@ -92,7 +92,7 @@
 /**
  *  The height constraint
  *
- *  @discussion If you don't explicitly set this outlet, it be attempt to be set by looping through the text view's `constraints`.
+ *  @warning A runtime exception will be thrown if you don't set this outlet.
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 

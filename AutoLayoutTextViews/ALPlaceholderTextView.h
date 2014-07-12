@@ -52,6 +52,9 @@
 
 @end
 
+/**
+ *  These methods should be considered "protected" and should not be called outside this class/subclasses.
+ */
 @interface ALPlaceholderTextView (Protected)
 
 /**
