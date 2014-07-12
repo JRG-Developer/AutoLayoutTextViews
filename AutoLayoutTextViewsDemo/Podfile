@@ -1,0 +1,5 @@
+platform :ios, "7.0"
+
+target "AutoLayoutTextViewsDemo" do
+  pod 'AutoLayoutTextViews', :path => '../'
+end

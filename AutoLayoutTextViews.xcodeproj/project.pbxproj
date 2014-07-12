@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0154CB6408E142EDBF9F6F69 /* libPods-AutoLayoutTextViewsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 487F164A8F7D4EEEA6DBA088 /* libPods-AutoLayoutTextViewsTests.a */; };
+		446084F9194282310093A6FA /* ALAutoResizingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 446084F8194282310093A6FA /* ALAutoResizingTextView.m */; };
+		44608500194283600093A6FA /* ALPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 446084FF194283600093A6FA /* ALPlaceholderTextView.m */; };
+		4460854D19429A520093A6FA /* ALPlaceholderTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460854C19429A520093A6FA /* ALPlaceholderTextViewTests.m */; };
+		4460855219429FEA0093A6FA /* Test_ALPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460855119429FEA0093A6FA /* Test_ALPlaceholderTextView.m */; };
+		447BD45C19413B840062487D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447BD45B19413B840062487D /* XCTest.framework */; };
+		447BD46819413B840062487D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447BD46619413B840062487D /* InfoPlist.strings */; };
+		448D9DFE194680C000453E69 /* Test_ALKeyboardAvoidingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D9DFD194680C000453E69 /* Test_ALKeyboardAvoidingTextView.m */; };
+		44A095891970F153000ED5B6 /* libAutoLayoutTextViews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 447BD44A19413B840062487D /* libAutoLayoutTextViews.a */; };
+		44FC5CEF19463C43004812F4 /* Test_ALAutoResizingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5CEE19463C43004812F4 /* Test_ALAutoResizingTextView.m */; };
+		44FC5CF21946581C004812F4 /* ALKeyboardAvoidingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5CF11946581C004812F4 /* ALKeyboardAvoidingTextView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		447BD46019413B840062487D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 447BD44219413B840062487D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 447BD44919413B840062487D;
+			remoteInfo = AOTextViews;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		447BD44819413B840062487D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		446084F7194282310093A6FA /* ALAutoResizingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAutoResizingTextView.h; sourceTree = "<group>"; };
+		446084F8194282310093A6FA /* ALAutoResizingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ALAutoResizingTextView.m; sourceTree = "<group>"; };
+		446084FE194283600093A6FA /* ALPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ALPlaceholderTextView.h; sourceTree = "<group>"; };
+		446084FF194283600093A6FA /* ALPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ALPlaceholderTextView.m; sourceTree = "<group>"; };
+		4460854C19429A520093A6FA /* ALPlaceholderTextViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ALPlaceholderTextViewTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4460855019429FEA0093A6FA /* Test_ALPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_ALPlaceholderTextView.h; sourceTree = "<group>"; };
+		4460855119429FEA0093A6FA /* Test_ALPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_ALPlaceholderTextView.m; sourceTree = "<group>"; };
+		447BD44A19413B840062487D /* libAutoLayoutTextViews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAutoLayoutTextViews.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		447BD44D19413B840062487D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		447BD45119413B840062487D /* AutoLayoutTextViews-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AutoLayoutTextViews-Prefix.pch"; sourceTree = "<group>"; };
+		447BD45A19413B840062487D /* AutoLayoutTextViewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutTextViewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		447BD45B19413B840062487D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		447BD45E19413B840062487D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		447BD46519413B840062487D /* AutoLayoutTextViewsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AutoLayoutTextViewsTests-Info.plist"; sourceTree = "<group>"; };
+		447BD46719413B840062487D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		448D9DF3194671C700453E69 /* AutoLayoutTextViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayoutTextViews.h; sourceTree = "<group>"; };
+		448D9DFA1946801D00453E69 /* ALKeyboardAvoidingTextViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALKeyboardAvoidingTextViewTests.m; sourceTree = "<group>"; };
+		448D9DFC194680C000453E69 /* Test_ALKeyboardAvoidingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_ALKeyboardAvoidingTextView.h; sourceTree = "<group>"; };
+		448D9DFD194680C000453E69 /* Test_ALKeyboardAvoidingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_ALKeyboardAvoidingTextView.m; sourceTree = "<group>"; };
+		448FA0C4194639EF00F79989 /* ALAutoResizingTextViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ALAutoResizingTextViewTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		44FC5CED19463C43004812F4 /* Test_ALAutoResizingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_ALAutoResizingTextView.h; sourceTree = "<group>"; };
+		44FC5CEE19463C43004812F4 /* Test_ALAutoResizingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = Test_ALAutoResizingTextView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		44FC5CF01946581C004812F4 /* ALKeyboardAvoidingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALKeyboardAvoidingTextView.h; sourceTree = "<group>"; };
+		44FC5CF11946581C004812F4 /* ALKeyboardAvoidingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALKeyboardAvoidingTextView.m; sourceTree = "<group>"; };
+		487F164A8F7D4EEEA6DBA088 /* libPods-AutoLayoutTextViewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoLayoutTextViewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A67EE64DD2D40EBBB06338F /* libPods-AOTextViewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AOTextViewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A452AF16D387443EBD8C4E41 /* Pods-AutoLayoutTextViewsTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViewsTests.xcconfig"; path = "Pods/Pods-AutoLayoutTextViewsTests.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		447BD44719413B840062487D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447BD45719413B840062487D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44A095891970F153000ED5B6 /* libAutoLayoutTextViews.a in Frameworks */,
+				447BD45C19413B840062487D /* XCTest.framework in Frameworks */,
+				0154CB6408E142EDBF9F6F69 /* libPods-AutoLayoutTextViewsTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44608502194283AC0093A6FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				446084F7194282310093A6FA /* ALAutoResizingTextView.h */,
+				446084F8194282310093A6FA /* ALAutoResizingTextView.m */,
+				44FC5CF01946581C004812F4 /* ALKeyboardAvoidingTextView.h */,
+				44FC5CF11946581C004812F4 /* ALKeyboardAvoidingTextView.m */,
+				446084FE194283600093A6FA /* ALPlaceholderTextView.h */,
+				446084FF194283600093A6FA /* ALPlaceholderTextView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4460854E19429FCE0093A6FA /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				448FA0C4194639EF00F79989 /* ALAutoResizingTextViewTests.m */,
+				4460854C19429A520093A6FA /* ALPlaceholderTextViewTests.m */,
+				448D9DFA1946801D00453E69 /* ALKeyboardAvoidingTextViewTests.m */,
+			);
+			name = Cases;
+			sourceTree = "<group>";
+		};
+		4460854F19429FD40093A6FA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				44FC5CED19463C43004812F4 /* Test_ALAutoResizingTextView.h */,
+				44FC5CEE19463C43004812F4 /* Test_ALAutoResizingTextView.m */,
+				4460855019429FEA0093A6FA /* Test_ALPlaceholderTextView.h */,
+				4460855119429FEA0093A6FA /* Test_ALPlaceholderTextView.m */,
+				448D9DFC194680C000453E69 /* Test_ALKeyboardAvoidingTextView.h */,
+				448D9DFD194680C000453E69 /* Test_ALKeyboardAvoidingTextView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		447BD44119413B840062487D = {
+			isa = PBXGroup;
+			children = (
+				447BD44F19413B840062487D /* AOTextViews */,
+				447BD46319413B840062487D /* AOTextViewsTests */,
+				447BD44C19413B840062487D /* Frameworks */,
+				447BD44B19413B840062487D /* Products */,
+				A452AF16D387443EBD8C4E41 /* Pods-AutoLayoutTextViewsTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		447BD44B19413B840062487D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				447BD44A19413B840062487D /* libAutoLayoutTextViews.a */,
+				447BD45A19413B840062487D /* AutoLayoutTextViewsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		447BD44C19413B840062487D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				447BD44D19413B840062487D /* Foundation.framework */,
+				447BD45B19413B840062487D /* XCTest.framework */,
+				447BD45E19413B840062487D /* UIKit.framework */,
+				5A67EE64DD2D40EBBB06338F /* libPods-AOTextViewsTests.a */,
+				487F164A8F7D4EEEA6DBA088 /* libPods-AutoLayoutTextViewsTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		447BD44F19413B840062487D /* AOTextViews */ = {
+			isa = PBXGroup;
+			children = (
+				448D9DF3194671C700453E69 /* AutoLayoutTextViews.h */,
+				44608502194283AC0093A6FA /* Views */,
+				447BD45019413B840062487D /* Supporting Files */,
+			);
+			name = AOTextViews;
+			path = AutoLayoutTextViews;
+			sourceTree = "<group>";
+		};
+		447BD45019413B840062487D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				447BD45119413B840062487D /* AutoLayoutTextViews-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		447BD46319413B840062487D /* AOTextViewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				4460854E19429FCE0093A6FA /* Cases */,
+				4460854F19429FD40093A6FA /* Classes */,
+				447BD46419413B840062487D /* Supporting Files */,
+			);
+			name = AOTextViewsTests;
+			path = AutoLayoutTextViewsTests;
+			sourceTree = "<group>";
+		};
+		447BD46419413B840062487D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				447BD46519413B840062487D /* AutoLayoutTextViewsTests-Info.plist */,
+				447BD46619413B840062487D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		447BD44919413B840062487D /* AutoLayoutTextViews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447BD46D19413B840062487D /* Build configuration list for PBXNativeTarget "AutoLayoutTextViews" */;
+			buildPhases = (
+				447BD44619413B840062487D /* Sources */,
+				447BD44719413B840062487D /* Frameworks */,
+				447BD44819413B840062487D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoLayoutTextViews;
+			productName = AOTextViews;
+			productReference = 447BD44A19413B840062487D /* libAutoLayoutTextViews.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		447BD45919413B840062487D /* AutoLayoutTextViewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447BD47019413B840062487D /* Build configuration list for PBXNativeTarget "AutoLayoutTextViewsTests" */;
+			buildPhases = (
+				7187785AB32A4D1A8D893AA5 /* Check Pods Manifest.lock */,
+				447BD45619413B840062487D /* Sources */,
+				447BD45719413B840062487D /* Frameworks */,
+				447BD45819413B840062487D /* Resources */,
+				3D0B36F7E6184547AF32BA2F /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				447BD46119413B840062487D /* PBXTargetDependency */,
+			);
+			name = AutoLayoutTextViewsTests;
+			productName = AOTextViewsTests;
+			productReference = 447BD45A19413B840062487D /* AutoLayoutTextViewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		447BD44219413B840062487D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "";
+			};
+			buildConfigurationList = 447BD44519413B840062487D /* Build configuration list for PBXProject "AutoLayoutTextViews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 447BD44119413B840062487D;
+			productRefGroup = 447BD44B19413B840062487D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				447BD44919413B840062487D /* AutoLayoutTextViews */,
+				447BD45919413B840062487D /* AutoLayoutTextViewsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		447BD45819413B840062487D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				447BD46819413B840062487D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D0B36F7E6184547AF32BA2F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AutoLayoutTextViewsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7187785AB32A4D1A8D893AA5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		447BD44619413B840062487D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				446084F9194282310093A6FA /* ALAutoResizingTextView.m in Sources */,
+				44608500194283600093A6FA /* ALPlaceholderTextView.m in Sources */,
+				44FC5CF21946581C004812F4 /* ALKeyboardAvoidingTextView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447BD45619413B840062487D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4460854D19429A520093A6FA /* ALPlaceholderTextViewTests.m in Sources */,
+				4460855219429FEA0093A6FA /* Test_ALPlaceholderTextView.m in Sources */,
+				448D9DFE194680C000453E69 /* Test_ALKeyboardAvoidingTextView.m in Sources */,
+				44FC5CEF19463C43004812F4 /* Test_ALAutoResizingTextView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		447BD46119413B840062487D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 447BD44919413B840062487D /* AutoLayoutTextViews */;
+			targetProxy = 447BD46019413B840062487D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		447BD46619413B840062487D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				447BD46719413B840062487D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		447BD46B19413B840062487D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		447BD46C19413B840062487D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		447BD46E19413B840062487D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AutoLayoutTextViews.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AutoLayoutTextViews/AutoLayoutTextViews-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AutoLayoutTextViews;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		447BD46F19413B840062487D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AutoLayoutTextViews.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AutoLayoutTextViews/AutoLayoutTextViews-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AutoLayoutTextViews;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		447BD47119413B840062487D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A452AF16D387443EBD8C4E41 /* Pods-AutoLayoutTextViewsTests.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AutoLayoutTextViews/AutoLayoutTextViews-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AutoLayoutTextViewsTests/AutoLayoutTextViewsTests-Info.plist";
+				PRODUCT_NAME = AutoLayoutTextViewsTests;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		447BD47219413B840062487D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A452AF16D387443EBD8C4E41 /* Pods-AutoLayoutTextViewsTests.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AutoLayoutTextViews/AutoLayoutTextViews-Prefix.pch";
+				INFOPLIST_FILE = "AutoLayoutTextViewsTests/AutoLayoutTextViewsTests-Info.plist";
+				PRODUCT_NAME = AutoLayoutTextViewsTests;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		447BD44519413B840062487D /* Build configuration list for PBXProject "AutoLayoutTextViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447BD46B19413B840062487D /* Debug */,
+				447BD46C19413B840062487D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447BD46D19413B840062487D /* Build configuration list for PBXNativeTarget "AutoLayoutTextViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447BD46E19413B840062487D /* Debug */,
+				447BD46F19413B840062487D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447BD47019413B840062487D /* Build configuration list for PBXNativeTarget "AutoLayoutTextViewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447BD47119413B840062487D /* Debug */,
+				447BD47219413B840062487D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 447BD44219413B840062487D /* Project object */;
+}
