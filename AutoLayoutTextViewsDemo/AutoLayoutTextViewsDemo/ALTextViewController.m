@@ -33,8 +33,6 @@
 {
   [super viewDidLoad];
   self.textView.placeholder = @"Placeholder Text";
-  [self.textView becomeFirstResponder];
-  
   [self setUpDoneButton];
 }
 
@@ -45,6 +43,12 @@
                                                                 target:self
                                                                 action:@selector(doneButtonPressed:)];
   self.navigationItem.rightBarButtonItem = doneButton;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [self.textView becomeFirstResponder];
 }
 
 #pragma mark - Actions

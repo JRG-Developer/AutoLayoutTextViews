@@ -31,27 +31,36 @@
 - (void)commonInit
 {
   [super commonInit];
-
+  
   _minimumHeight = 0.0f;
   _maximumHeight = CGFLOAT_MAX;
   _autoresizingAnimationDuration = 0.2f;
+}
+
+#pragma mark - View Setup
+
+- (void)awakeFromNib
+{
+  [super awakeFromNib];
   
-  [self findHeightConstraint];
+  if (!self.heightConstraint) {
+    [self findHeightConstraint];
+  }
 }
 
 - (void)findHeightConstraint
 {
-  if (self.heightConstraint) {
-    return;
-  }
-  
   for (NSLayoutConstraint *constraint in self.constraints) {
-    
-    if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+    if ([self isHeightConstraint:constraint]) {
       self.heightConstraint = constraint;
-      return;
+      break;
     }
   }
+}
+
+- (BOOL)isHeightConstraint:(NSLayoutConstraint *)constraint
+{
+  return constraint.firstItem == self && constraint.firstAttribute == NSLayoutAttributeHeight;
 }
 
 #pragma mark - Custom Accessors
@@ -74,8 +83,7 @@
 {
 #ifdef DEBUG
   NSAssert(self.heightConstraint, @"ALAutoResizingTextView is missing a height constraint. ALAutoResizingTextView "
-                                  @"relies on auto layout for growing/shrinking functionality and will not work if "
-                                  @"auto layout is disabled.");
+           @"relies on auto layout and will not work if its `heightConstraint` is not set.");
 #endif
   
   [super layoutSubviews];
@@ -123,11 +131,11 @@
 - (void)animateHeightChange
 {
   [[self viewClass] animateWithDuration:self.autoresizingAnimationDuration
-                        delay:0.0f
-                      options:UIViewAnimationOptionAllowUserInteraction |
+                                  delay:0.0f
+                                options:UIViewAnimationOptionAllowUserInteraction |
    UIViewAnimationOptionBeginFromCurrentState
-                   animations:[self animationBlock]
-                   completion:[self completionBlock]];
+                             animations:[self animationBlock]
+                             completion:[self completionBlock]];
 }
 
 - (void)setNewHeightWithoutAnimation

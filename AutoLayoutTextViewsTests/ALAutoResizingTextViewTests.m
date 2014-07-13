@@ -126,19 +126,26 @@
   assertThatFloat(sut.autoresizingAnimationDuration, equalToFloat(0.2f));
 }
 
-- (void)test___commonInit___setHeightConstraint
+#pragma mark - View - Tests
+
+- (void)test___awakeFromNib___setsHeightConstraint_whenHeightConstraintFoundBy_firstItem
 {
   // given
   sut.heightConstraint = nil;
+  [sut addConstraint:[NSLayoutConstraint constraintWithItem:sut
+                                                 attribute:NSLayoutAttributeHeight
+                                                 relatedBy:NSLayoutRelationEqual
+                                                    toItem:nil
+                                                 attribute:NSLayoutAttributeNotAnAttribute
+                                                 multiplier:1.0
+                                                   constant:150.0f]];
   
   // when
-  [sut commonInit];
+  [sut awakeFromNib];
   
   // then
   assertThat(sut.heightConstraint, notNilValue());
 }
-
-#pragma mark - View - Tests
 
 - (void)test___layoutSubViews___updatesHeightConstraint
 {

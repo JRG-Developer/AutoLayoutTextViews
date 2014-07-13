@@ -15,6 +15,8 @@
 		447BD45C19413B840062487D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447BD45B19413B840062487D /* XCTest.framework */; };
 		447BD46819413B840062487D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447BD46619413B840062487D /* InfoPlist.strings */; };
 		448D9DFE194680C000453E69 /* Test_ALKeyboardAvoidingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D9DFD194680C000453E69 /* Test_ALKeyboardAvoidingTextView.m */; };
+		449026B4197325DA00A737C3 /* ALKeyboardAvoidingTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D9DFA1946801D00453E69 /* ALKeyboardAvoidingTextViewTests.m */; };
+		449026B519732E9700A737C3 /* ALAutoResizingTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 448FA0C4194639EF00F79989 /* ALAutoResizingTextViewTests.m */; };
 		44A095891970F153000ED5B6 /* libAutoLayoutTextViews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 447BD44A19413B840062487D /* libAutoLayoutTextViews.a */; };
 		44FC5CEF19463C43004812F4 /* Test_ALAutoResizingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5CEE19463C43004812F4 /* Test_ALAutoResizingTextView.m */; };
 		44FC5CF21946581C004812F4 /* ALKeyboardAvoidingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5CF11946581C004812F4 /* ALKeyboardAvoidingTextView.m */; };
@@ -132,8 +134,8 @@
 		447BD44119413B840062487D = {
 			isa = PBXGroup;
 			children = (
-				447BD44F19413B840062487D /* AOTextViews */,
-				447BD46319413B840062487D /* AOTextViewsTests */,
+				447BD44F19413B840062487D /* AutoLayoutTextViews */,
+				447BD46319413B840062487D /* AutoLayoutTextViewsTests */,
 				447BD44C19413B840062487D /* Frameworks */,
 				447BD44B19413B840062487D /* Products */,
 				A452AF16D387443EBD8C4E41 /* Pods-AutoLayoutTextViewsTests.xcconfig */,
@@ -161,14 +163,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		447BD44F19413B840062487D /* AOTextViews */ = {
+		447BD44F19413B840062487D /* AutoLayoutTextViews */ = {
 			isa = PBXGroup;
 			children = (
 				448D9DF3194671C700453E69 /* AutoLayoutTextViews.h */,
 				44608502194283AC0093A6FA /* Views */,
 				447BD45019413B840062487D /* Supporting Files */,
 			);
-			name = AOTextViews;
 			path = AutoLayoutTextViews;
 			sourceTree = "<group>";
 		};
@@ -180,14 +181,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		447BD46319413B840062487D /* AOTextViewsTests */ = {
+		447BD46319413B840062487D /* AutoLayoutTextViewsTests */ = {
 			isa = PBXGroup;
 			children = (
 				4460854E19429FCE0093A6FA /* Cases */,
 				4460854F19429FD40093A6FA /* Classes */,
 				447BD46419413B840062487D /* Supporting Files */,
 			);
-			name = AOTextViewsTests;
 			path = AutoLayoutTextViewsTests;
 			sourceTree = "<group>";
 		};
@@ -329,7 +329,9 @@
 			files = (
 				4460854D19429A520093A6FA /* ALPlaceholderTextViewTests.m in Sources */,
 				4460855219429FEA0093A6FA /* Test_ALPlaceholderTextView.m in Sources */,
+				449026B4197325DA00A737C3 /* ALKeyboardAvoidingTextViewTests.m in Sources */,
 				448D9DFE194680C000453E69 /* Test_ALKeyboardAvoidingTextView.m in Sources */,
+				449026B519732E9700A737C3 /* ALAutoResizingTextViewTests.m in Sources */,
 				44FC5CEF19463C43004812F4 /* Test_ALAutoResizingTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

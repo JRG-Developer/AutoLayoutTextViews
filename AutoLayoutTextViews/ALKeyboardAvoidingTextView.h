@@ -28,10 +28,12 @@
  *  `ALKeyboardAvoidingTextView` adds keyboard avoiding functionality to `ALPlaceholderTextView`.
  */
 @interface ALKeyboardAvoidingTextView : ALPlaceholderTextView
+
 /**
  *  You should connect this outlet to the bottom constraint that's connected to the bottom layout guide.
  *
- *  @warning If this outlet isn't set, throws an assert.
+ *  @discussion If this outlet isn't connected, it will try to be determined by iterating through its `superview.constraints`.
+ *  @warning If you do not explicitly set this outlet, and it's *not* able to be determined, this class will throw a runtime exception.
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraintToBottomLayoutGuide;
 @end

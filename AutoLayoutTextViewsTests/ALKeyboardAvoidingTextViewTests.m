@@ -43,6 +43,7 @@
 {
   Test_ALKeyboardAvoidingTextView *sut;
   NSLayoutConstraint *mockConstraint;
+  UIView *superview;
 }
 
 #pragma mark - Test Lifecycle
@@ -58,6 +59,12 @@
 }
 
 #pragma mark - Given
+
+- (void)givenAddedToSuperview
+{
+  superview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 480.0f)];
+  [superview addSubview:sut];
+}
 
 - (NSNotification *)givenMockNotification
 {
@@ -93,6 +100,48 @@
   [verifyCount(sut.test_viewClass, never()) setAnimationCurve:[info[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
   [verifyCount(sut.test_viewClass, never()) setAnimationBeginsFromCurrentState:YES];
   [verifyCount(sut.test_viewClass, never()) commitAnimations];
+}
+
+#pragma mark - View - Tests
+
+- (void)test___awakeFromNib___sets_bottomConstraint_fromSuperViewConstraints_whenBottomConstraintIsFoundBy_firstItem
+{
+  // given
+  [self givenAddedToSuperview];
+  sut.bottomConstraintToBottomLayoutGuide = nil;
+  
+  [superview addConstraint:[NSLayoutConstraint constraintWithItem:sut
+                                                       attribute:NSLayoutAttributeBottom
+                                                       relatedBy:NSLayoutRelationEqual
+                                                          toItem:superview
+                                                       attribute:NSLayoutAttributeBottom
+                                                       multiplier:1.0f
+                                                         constant:0.0f]];
+  // when
+  [sut awakeFromNib];
+  
+  // then
+  assertThat(sut.bottomConstraintToBottomLayoutGuide, notNilValue());
+}
+
+- (void)test___awakeFromNib___sets_bottomConstraint_fromSuperViewConstraints_whenBottomConstraintIsFoundBy_secondItem
+{
+  // given
+  [self givenAddedToSuperview];
+  sut.bottomConstraintToBottomLayoutGuide = nil;
+  
+  [superview addConstraint:[NSLayoutConstraint constraintWithItem:superview
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:sut
+                                                        attribute:NSLayoutAttributeBottom
+                                                       multiplier:1.0f
+                                                         constant:0.0f]];
+  // when
+  [sut awakeFromNib];
+  
+  // then
+  assertThat(sut.bottomConstraintToBottomLayoutGuide, notNilValue());
 }
 
 #pragma mark - Keyboard Will Show - Tests

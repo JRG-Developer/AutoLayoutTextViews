@@ -149,7 +149,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
-                                    <outlet property="bottomConstraintToBottomLayoutGuide" destination="3Ir-Vw-CuY" id="PT2-gs-aBY"/>
                                     <outlet property="delegate" destination="gZP-32-q89" id="mtp-Dt-J3a"/>
                                 </connections>
                             </textView>

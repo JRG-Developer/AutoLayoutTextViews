@@ -77,7 +77,7 @@
  *	The maximum height for the text view.
  *
  *  @discussion The default value is `CGFloat_MAX`. 
- *  If you attempt to set a negative value, `maximumHeight` will be set to `CGFloat_Max`.
+ *  If you attempt to set a value less than or equal to zero, `maximumHeight` will be set to `CGFloat_Max`.
  */
 @property (assign, nonatomic) CGFloat maximumHeight;
 
@@ -92,7 +92,8 @@
 /**
  *  The height constraint
  *
- *  @warning A runtime exception will be thrown if you don't set this outlet.
+ *  @discussion If this outlet isn't connected, it will try to be determined by iterating through its `self.constraints`.
+ *  @warning If you do not explicitly set this outlet, and it's *not* able to be determined, this class will throw a runtime exception.
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 

@@ -26,14 +26,53 @@
 
 @implementation ALKeyboardAvoidingTextView
 
+#pragma mark - View Setup
+
+- (void)awakeFromNib
+{
+  [super awakeFromNib];
+  
+  if (!self.bottomConstraintToBottomLayoutGuide) {
+    [self findBottomConstraint];
+  }
+}
+
+- (void)findBottomConstraint
+{
+  for (NSLayoutConstraint *constraint in self.superview.constraints) {
+    if ([self isBottomConstraint:constraint]) {
+      self.bottomConstraintToBottomLayoutGuide = constraint;
+      break;
+    }
+  }
+}
+
+- (BOOL)isBottomConstraint:(NSLayoutConstraint *)constraint
+{
+  return  [self firstItemMatchesBottomConstraint:constraint] ||
+  [self secondItemMatchesBottomConstraint:constraint];
+}
+
+- (BOOL)firstItemMatchesBottomConstraint:(NSLayoutConstraint *)constraint
+{
+  return constraint.firstItem == self && constraint.firstAttribute == NSLayoutAttributeBottom;
+}
+
+- (BOOL)secondItemMatchesBottomConstraint:(NSLayoutConstraint *)constraint
+{
+  return constraint.secondItem == self && constraint.secondAttribute == NSLayoutAttributeBottom;
+}
+
 #pragma mark - Notifications
+
+#pragma mark - keyboardWillShow:
 
 - (void)keyboardWillShow:(NSNotification *)notification
 {
   [super keyboardWillShow:notification];
   
   CGFloat constant = [self bottomConstantFromNotification:notification];
-  [self setBottomConstant:constant animationInfo:[notification userInfo] animated:![self shouldDrawPlaceholder]];
+  [self setBottomConstraintConstant:constant animationInfo:[notification userInfo] animated:![self shouldDrawPlaceholder]];
 }
 
 - (CGFloat)bottomConstantFromNotification:(NSNotification *)notification
@@ -42,36 +81,35 @@
   return CGRectGetHeight(keyboardFrame) * [self constraintConstantMultiplier];
 }
 
+- (CGRect)keyboardFrameFromNotification:(NSNotification *)notification
+{
+  NSDictionary *info = [notification userInfo];
+  CGRect keyboardFrame = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+  keyboardFrame = [self convertRect:keyboardFrame fromView:nil];
+  return keyboardFrame;
+}
+
 - (CGFloat)constraintConstantMultiplier
 {
   return self.bottomConstraintToBottomLayoutGuide.firstItem == self ? -1 : 1;
 }
 
-- (CGRect)keyboardFrameFromNotification:(NSNotification *)notification
-{
-  NSDictionary *info = [notification userInfo];
-  CGRect keyboardFrame = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-  keyboardFrame = [self convertRect:keyboardFrame fromView:nil];  
-  return keyboardFrame;
-}
+#pragma mark - keyboardWillHide:
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
   [super keyboardWillHide:notification];
-  
-  [self setBottomConstant:0
-            animationInfo:[notification userInfo]
-                 animated:![self shouldDrawPlaceholder]];
+  [self setBottomConstraintConstant:0 animationInfo:[notification userInfo] animated:![self shouldDrawPlaceholder]];
 }
 
-- (void)setBottomConstant:(CGFloat)constant animationInfo:(NSDictionary *)info animated:(BOOL)animated
-{
+#pragma mark - setBottomConstant: animationInfo: animated:
 
+- (void)setBottomConstraintConstant:(CGFloat)constant animationInfo:(NSDictionary *)info animated:(BOOL)animated
+{
 #ifdef DEBUG
   NSAssert(self.bottomConstraintToBottomLayoutGuide,
-           @"ALKeyboardAvoidingTextView's `bottomConstaintToBottomLayoutGuide` is not connected. "
-           @"ALKeyboardAvoidingTextView relies on autolayout and will not work if it's disable or if its "
-           @"`bottomConstaintToBottomLayoutGuide` outlet is not set.");
+           @"ALKeyboardAvoidingTextView's `bottomConstraint` is not connected. ALKeyboardAvoidingTextView relies on "
+           @"auto layout and will not work if it's disable or if its `bottomConstraint` outlet is not set.");
 #endif
   
   self.bottomConstraintToBottomLayoutGuide.constant = constant;
