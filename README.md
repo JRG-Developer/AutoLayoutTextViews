@@ -8,7 +8,7 @@
 
 The easiest way to add `AutoLayoutTextViews` to your project is using <a href="http://cocoapods.org/">CocoaPods</a>. Simply add the following to your Podfile:
 
-pod 'AutoLayoutTextViews', '~> 1.0'
+    pod 'AutoLayoutTextViews', '~> 1.0'
 
 Then run `pod install` as you normally would.
 
