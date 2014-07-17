@@ -30,7 +30,7 @@ Alternatively, you can manually include `AutoLayoutTextViews` in your project by
 
 Note: when you create `layout constraints` (either in Interface Builder or in code), make sure that you set the `height` and/or `bottom` constraints to `greater than or equal`. See the `AutoLayoutTextViewsDemo` project for an example of how to do this using Interface Builder.
 
-3) `ALKeyboardAvoidingTextView` also subclasses `ALPlaceholderTextView`, which gives it a `placeholder` property, and adds "keyboard avoiding behavior- the text view's frame will shrink/expand as the keyboard will show/hide.
+3) `ALKeyboardAvoidingTextView` also subclasses `ALPlaceholderTextView`, which gives it a `placeholder` property, and adds "keyboard avoiding" behavior- the text view's frame will shrink/expand as the keyboard will show/hide.
 
 ### How to Use
 
@@ -38,7 +38,7 @@ Simply use `ALPlaceholderTextView`, `ALAutoResizingTextView`, or `ALKeyboardAvoi
 
 For example usage of each of these, see the `AutoLayoutTextViewsDemo` project within this repository.
 
-Note: `AutoLayoutTextViewsDemo` uses CocoaPods to add `AutoLayoutTextViews` as a dependency. So, you will need to first run `pod install` in the `AutoLayoutTextViewsDemo` directory to add the pods.
+Note: `AutoLayoutTextViewsDemo` uses CocoaPods to add `AutoLayoutTextViews` as a dependency. So, you will need to first run `pod install` in the `AutoLayoutTextViewsDemo` directory.
 
 ### Contributing
 
