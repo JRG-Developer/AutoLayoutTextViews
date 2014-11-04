@@ -81,13 +81,12 @@
 
 - (void)layoutSubviews
 {
-#ifdef DEBUG
   NSAssert(self.heightConstraint, @"ALAutoResizingTextView is missing a height constraint. ALAutoResizingTextView "
            @"relies on auto layout and will not work if its `heightConstraint` is not set.");
-#endif
   
   [super layoutSubviews];
-  [self needsUpdateConstraints];
+  [self setNeedsUpdateConstraints];
+  [self updateConstraintsIfNeeded];
 }
 
 - (void)updateConstraints
@@ -95,7 +94,6 @@
   [super updateConstraints];
   [self updateHeightConstraint];
 }
-
 
 - (void)updateHeightConstraint
 {
@@ -116,13 +114,16 @@
 
 - (CGFloat)calculateNewHeight
 {
-  CGSize size = [self sizeThatFits:self.frame.size];
-  CGFloat height = size.height + self.contentInset.top;
-  
+  CGFloat height = [self heightThatFitsContents];
   height = fminf(height, self.maximumHeight);
   height = fmaxf(height, self.minimumHeight);
-  
-  return height;
+  return ceilf(height);
+}
+
+- (CGFloat)heightThatFitsContents
+{
+  CGSize size = [self sizeThatFits:self.frame.size];
+  return size.height + self.contentInset.top;
 }
 
 - (BOOL)didHeightChange
@@ -140,7 +141,7 @@
   [[self viewClass] animateWithDuration:self.autoresizingAnimationDuration
                                   delay:0.0f
                                 options:UIViewAnimationOptionAllowUserInteraction |
-   UIViewAnimationOptionBeginFromCurrentState
+                                        UIViewAnimationOptionBeginFromCurrentState
                              animations:[self animationBlock]
                              completion:[self completionBlock]];
 }
@@ -164,6 +165,7 @@
 - (void(^)(BOOL))completionBlock
 {
   return ^(BOOL finished) {
+    
     if ([self.delegate respondsToSelector:@selector(textView:didChangeFromHeight:toHeight:)]) {
       [self.delegate textView:self didChangeFromHeight:self.oldHeight toHeight:self.newHeight];
     }

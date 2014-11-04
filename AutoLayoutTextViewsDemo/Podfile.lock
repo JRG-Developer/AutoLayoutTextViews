@@ -1,5 +1,5 @@
 PODS:
-  - AutoLayoutTextViews (1.0.1)
+  - AutoLayoutTextViews (1.1.1)
 
 DEPENDENCIES:
   - AutoLayoutTextViews (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AutoLayoutTextViews: 87f8f9c45e1a4d79e18b384e3a70b06a0856417d
+  AutoLayoutTextViews: 12ca19c941122ccbf9a768739d1cfa6f5ca6ae11
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.34.4

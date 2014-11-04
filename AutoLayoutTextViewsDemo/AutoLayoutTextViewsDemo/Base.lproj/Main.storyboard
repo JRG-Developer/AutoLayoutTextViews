@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="MeB-Ss-lPV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="MeB-Ss-lPV">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Text Views AutoLayoutTextViewsDemo-->
+        <!--AutoLayoutTextViews Demo-->
         <scene sceneID="hno-b1-98f">
             <objects>
-                <tableViewController id="yqT-aU-USI" customClass="ALTableViewController" sceneMemberID="viewController">
+                <tableViewController title="AutoLayoutTextViews Demo" id="yqT-aU-USI" customClass="ALTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mj9-QS-HB0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,13 +84,13 @@
                             <outlet property="delegate" destination="yqT-aU-USI" id="IeP-yG-l25"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Text Views AutoLayoutTextViewsDemo" id="PAW-5J-xWP"/>
+                    <navigationItem key="navigationItem" title="AutoLayoutTextViews Demo" id="PAW-5J-xWP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6R-P6-xPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3" y="-36"/>
         </scene>
-        <!--Text View Controller - Placeholder-->
+        <!--Placeholder-->
         <scene sceneID="1Lf-So-guf">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="wYR-0k-1xs" customClass="ALTextViewController" sceneMemberID="viewController">
@@ -103,13 +104,12 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPM-iS-TJb" customClass="ALPlaceholderTextView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="105" id="z9w-1a-Cmn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -130,7 +130,7 @@
             </objects>
             <point key="canvasLocation" x="408" y="-485"/>
         </scene>
-        <!--Text View Controller - Keyboard Avoiding-->
+        <!--Keyboard Avoiding-->
         <scene sceneID="BYe-WW-Zna">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="gZP-32-q89" customClass="ALTextViewController" sceneMemberID="viewController">
@@ -144,10 +144,9 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2W-Z1-1sb" customClass="ALKeyboardAvoidingTextView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="gZP-32-q89" id="mtp-Dt-J3a"/>
                                 </connections>
@@ -172,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="408" y="422"/>
         </scene>
-        <!--Text View Controller - Auto Resizing-->
+        <!--Auto Resizing-->
         <scene sceneID="WaM-Ek-bHi">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="WMF-SK-HaE" customClass="ALTextViewController" sceneMemberID="viewController">
@@ -186,13 +185,12 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="aDe-Xb-cR5" customClass="ALAutoResizingTextView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="anB-sh-XWT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

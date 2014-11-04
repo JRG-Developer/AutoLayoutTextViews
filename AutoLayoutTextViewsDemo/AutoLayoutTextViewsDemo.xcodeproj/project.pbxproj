@@ -1,371 +1,791 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		4460851A194286690093A6FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44608518194286690093A6FA /* InfoPlist.strings */; };
-		4460851C194286690093A6FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460851B194286690093A6FA /* main.m */; };
-		44608520194286690093A6FA /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460851F194286690093A6FA /* ALAppDelegate.m */; };
-		44608523194286690093A6FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44608521194286690093A6FA /* Main.storyboard */; };
-		44608526194286690093A6FA /* ALTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44608525194286690093A6FA /* ALTableViewController.m */; };
-		44608528194286690093A6FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44608527194286690093A6FA /* Images.xcassets */; };
-		448D9DF61946743300453E69 /* ALTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D9DF51946743300453E69 /* ALTextViewController.m */; };
-		815B5596A10C4D67A6634888 /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFC0BAE800147B481EB2390 /* libPods-AutoLayoutTextViewsDemo.a */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		4460850C194286690093A6FA /* AutoLayoutTextViewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutTextViewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		44608517194286690093A6FA /* AutoLayoutTextViewsDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AutoLayoutTextViewsDemo-Info.plist"; sourceTree = "<group>"; };
-		44608519194286690093A6FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4460851B194286690093A6FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4460851D194286690093A6FA /* AutoLayoutTextViewsDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AutoLayoutTextViewsDemo-Prefix.pch"; sourceTree = "<group>"; };
-		4460851E194286690093A6FA /* ALAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAppDelegate.h; sourceTree = "<group>"; };
-		4460851F194286690093A6FA /* ALAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAppDelegate.m; sourceTree = "<group>"; };
-		44608522194286690093A6FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		44608524194286690093A6FA /* ALTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALTableViewController.h; sourceTree = "<group>"; };
-		44608525194286690093A6FA /* ALTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALTableViewController.m; sourceTree = "<group>"; };
-		44608527194286690093A6FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		448D9DF41946743300453E69 /* ALTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTextViewController.h; sourceTree = "<group>"; };
-		448D9DF51946743300453E69 /* ALTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTextViewController.m; sourceTree = "<group>"; };
-		5A03BD860D0048578DADF90D /* Pods-AutoLayoutTextViewsDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViewsDemo.xcconfig"; path = "Pods/Pods-AutoLayoutTextViewsDemo.xcconfig"; sourceTree = "<group>"; };
-		CCFC0BAE800147B481EB2390 /* libPods-AutoLayoutTextViewsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoLayoutTextViewsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		44608509194286690093A6FA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				815B5596A10C4D67A6634888 /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		44608503194286690093A6FA = {
-			isa = PBXGroup;
-			children = (
-				44608515194286690093A6FA /* AutoLayoutTextViewsDemo */,
-				4460850E194286690093A6FA /* Frameworks */,
-				4460850D194286690093A6FA /* Products */,
-				5A03BD860D0048578DADF90D /* Pods-AutoLayoutTextViewsDemo.xcconfig */,
-			);
-			sourceTree = "<group>";
-		};
-		4460850D194286690093A6FA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4460850C194286690093A6FA /* AutoLayoutTextViewsDemo.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		4460850E194286690093A6FA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CCFC0BAE800147B481EB2390 /* libPods-AutoLayoutTextViewsDemo.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		44608515194286690093A6FA /* AutoLayoutTextViewsDemo */ = {
-			isa = PBXGroup;
-			children = (
-				4460851E194286690093A6FA /* ALAppDelegate.h */,
-				4460851F194286690093A6FA /* ALAppDelegate.m */,
-				44608544194286720093A6FA /* Controllers */,
-				4460854B1942887F0093A6FA /* Views */,
-				44608516194286690093A6FA /* Supporting Files */,
-			);
-			path = AutoLayoutTextViewsDemo;
-			sourceTree = "<group>";
-		};
-		44608516194286690093A6FA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				44608527194286690093A6FA /* Images.xcassets */,
-				44608517194286690093A6FA /* AutoLayoutTextViewsDemo-Info.plist */,
-				44608518194286690093A6FA /* InfoPlist.strings */,
-				4460851B194286690093A6FA /* main.m */,
-				4460851D194286690093A6FA /* AutoLayoutTextViewsDemo-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		44608544194286720093A6FA /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				448D9DF41946743300453E69 /* ALTextViewController.h */,
-				448D9DF51946743300453E69 /* ALTextViewController.m */,
-				44608524194286690093A6FA /* ALTableViewController.h */,
-				44608525194286690093A6FA /* ALTableViewController.m */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		4460854B1942887F0093A6FA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				44608521194286690093A6FA /* Main.storyboard */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		4460850B194286690093A6FA /* AutoLayoutTextViewsDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4460853E194286690093A6FA /* Build configuration list for PBXNativeTarget "AutoLayoutTextViewsDemo" */;
-			buildPhases = (
-				48AC5D1F2B7C490899E425E0 /* Check Pods Manifest.lock */,
-				44608508194286690093A6FA /* Sources */,
-				44608509194286690093A6FA /* Frameworks */,
-				4460850A194286690093A6FA /* Resources */,
-				FB9D0AA459E34F9F8F778979 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AutoLayoutTextViewsDemo;
-			productName = Demo;
-			productReference = 4460850C194286690093A6FA /* AutoLayoutTextViewsDemo.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		44608504194286690093A6FA /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = AO;
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "App-Order, LLC";
-			};
-			buildConfigurationList = 44608507194286690093A6FA /* Build configuration list for PBXProject "AutoLayoutTextViewsDemo" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 44608503194286690093A6FA;
-			productRefGroup = 4460850D194286690093A6FA /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				4460850B194286690093A6FA /* AutoLayoutTextViewsDemo */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		4460850A194286690093A6FA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				44608528194286690093A6FA /* Images.xcassets in Resources */,
-				4460851A194286690093A6FA /* InfoPlist.strings in Resources */,
-				44608523194286690093A6FA /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		48AC5D1F2B7C490899E425E0 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FB9D0AA459E34F9F8F778979 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-AutoLayoutTextViewsDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		44608508194286690093A6FA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				44608520194286690093A6FA /* ALAppDelegate.m in Sources */,
-				448D9DF61946743300453E69 /* ALTextViewController.m in Sources */,
-				44608526194286690093A6FA /* ALTableViewController.m in Sources */,
-				4460851C194286690093A6FA /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		44608518194286690093A6FA /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44608519194286690093A6FA /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		44608521194286690093A6FA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44608522194286690093A6FA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		4460853C194286690093A6FA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		4460853D194286690093A6FA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		4460853F194286690093A6FA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A03BD860D0048578DADF90D /* Pods-AutoLayoutTextViewsDemo.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch";
-				INFOPLIST_FILE = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist";
-				PRODUCT_NAME = AutoLayoutTextViewsDemo;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		44608540194286690093A6FA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A03BD860D0048578DADF90D /* Pods-AutoLayoutTextViewsDemo.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch";
-				INFOPLIST_FILE = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist";
-				PRODUCT_NAME = AutoLayoutTextViewsDemo;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		44608507194286690093A6FA /* Build configuration list for PBXProject "AutoLayoutTextViewsDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4460853C194286690093A6FA /* Debug */,
-				4460853D194286690093A6FA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4460853E194286690093A6FA /* Build configuration list for PBXNativeTarget "AutoLayoutTextViewsDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4460853F194286690093A6FA /* Debug */,
-				44608540194286690093A6FA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 44608504194286690093A6FA /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>1710778FDA2F6FA51429CCD5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BE5DDBA6AE799EA89456BC1A</string>
+				<string>51292E7F96A1AFFE4C821792</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608503194286690093A6FA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>44608515194286690093A6FA</string>
+				<string>4460850E194286690093A6FA</string>
+				<string>4460850D194286690093A6FA</string>
+				<string>1710778FDA2F6FA51429CCD5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608504194286690093A6FA</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>CLASSPREFIX</key>
+				<string>AO</string>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>App-Order, LLC</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>44608507194286690093A6FA</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>44608503194286690093A6FA</string>
+			<key>productRefGroup</key>
+			<string>4460850D194286690093A6FA</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>4460850B194286690093A6FA</string>
+			</array>
+		</dict>
+		<key>44608507194286690093A6FA</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>4460853C194286690093A6FA</string>
+				<string>4460853D194286690093A6FA</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>44608508194286690093A6FA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>44608520194286690093A6FA</string>
+				<string>448D9DF61946743300453E69</string>
+				<string>44608526194286690093A6FA</string>
+				<string>4460851C194286690093A6FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>44608509194286690093A6FA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>815B5596A10C4D67A6634888</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>4460850A194286690093A6FA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>44608528194286690093A6FA</string>
+				<string>4460851A194286690093A6FA</string>
+				<string>44608523194286690093A6FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>4460850B194286690093A6FA</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>4460853E194286690093A6FA</string>
+			<key>buildPhases</key>
+			<array>
+				<string>48AC5D1F2B7C490899E425E0</string>
+				<string>44608508194286690093A6FA</string>
+				<string>44608509194286690093A6FA</string>
+				<string>4460850A194286690093A6FA</string>
+				<string>FB9D0AA459E34F9F8F778979</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>AutoLayoutTextViewsDemo</string>
+			<key>productName</key>
+			<string>Demo</string>
+			<key>productReference</key>
+			<string>4460850C194286690093A6FA</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>4460850C194286690093A6FA</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>AutoLayoutTextViewsDemo.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4460850D194286690093A6FA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4460850C194286690093A6FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4460850E194286690093A6FA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>CCFC0BAE800147B481EB2390</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608515194286690093A6FA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4460851E194286690093A6FA</string>
+				<string>4460851F194286690093A6FA</string>
+				<string>44608544194286720093A6FA</string>
+				<string>4460854B1942887F0093A6FA</string>
+				<string>44608516194286690093A6FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>AutoLayoutTextViewsDemo</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608516194286690093A6FA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>44608527194286690093A6FA</string>
+				<string>44608517194286690093A6FA</string>
+				<string>44608518194286690093A6FA</string>
+				<string>4460851B194286690093A6FA</string>
+				<string>4460851D194286690093A6FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608517194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>AutoLayoutTextViewsDemo-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608518194286690093A6FA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>44608519194286690093A6FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608519194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4460851A194286690093A6FA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>44608518194286690093A6FA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4460851B194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4460851C194286690093A6FA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4460851B194286690093A6FA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4460851D194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AutoLayoutTextViewsDemo-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4460851E194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>ALAppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4460851F194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ALAppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608520194286690093A6FA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4460851F194286690093A6FA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>44608521194286690093A6FA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>44608522194286690093A6FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608522194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608523194286690093A6FA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>44608521194286690093A6FA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>44608524194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>ALTableViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608525194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ALTableViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608526194286690093A6FA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>44608525194286690093A6FA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>44608527194286690093A6FA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44608528194286690093A6FA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>44608527194286690093A6FA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4460853C194286690093A6FA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>4460853D194286690093A6FA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>4460853E194286690093A6FA</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>4460853F194286690093A6FA</string>
+				<string>44608540194286690093A6FA</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>4460853F194286690093A6FA</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>BE5DDBA6AE799EA89456BC1A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>AutoLayoutTextViewsDemo</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>44608540194286690093A6FA</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>51292E7F96A1AFFE4C821792</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>AutoLayoutTextViewsDemo</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>44608544194286720093A6FA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>448D9DF41946743300453E69</string>
+				<string>448D9DF51946743300453E69</string>
+				<string>44608524194286690093A6FA</string>
+				<string>44608525194286690093A6FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Controllers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4460854B1942887F0093A6FA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>44608521194286690093A6FA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Views</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>448D9DF41946743300453E69</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>ALTextViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>448D9DF51946743300453E69</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ALTextViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>448D9DF61946743300453E69</key>
+		<dict>
+			<key>fileRef</key>
+			<string>448D9DF51946743300453E69</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48AC5D1F2B7C490899E425E0</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>51292E7F96A1AFFE4C821792</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-AutoLayoutTextViewsDemo.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViewsDemo.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>815B5596A10C4D67A6634888</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CCFC0BAE800147B481EB2390</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BE5DDBA6AE799EA89456BC1A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-AutoLayoutTextViewsDemo.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViewsDemo.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CCFC0BAE800147B481EB2390</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-AutoLayoutTextViewsDemo.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>FB9D0AA459E34F9F8F778979</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViewsDemo-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>44608504194286690093A6FA</string>
+</dict>
+</plist>
