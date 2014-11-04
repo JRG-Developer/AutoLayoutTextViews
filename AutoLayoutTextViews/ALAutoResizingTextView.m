@@ -87,8 +87,15 @@
 #endif
   
   [super layoutSubviews];
+  [self needsUpdateConstraints];
+}
+
+- (void)updateConstraints
+{
+  [super updateConstraints];
   [self updateHeightConstraint];
 }
+
 
 - (void)updateHeightConstraint
 {
