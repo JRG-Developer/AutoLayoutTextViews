@@ -1,19 +1,13 @@
 PODS:
-  - AOTestCase (1.0.3)
-  - OCHamcrest (4.0.1)
-  - OCMockito (1.3.0):
-    - OCHamcrest (~> 4.0)
-    - TPWeakProxy (~> 1.0)
-  - TPWeakProxy (1.0.1)
+  - Expecta (0.3.1)
+  - OCMock (3.1.1)
 
 DEPENDENCIES:
-  - AOTestCase (~> 1.0)
-  - OCMockito (~> 1.3)
+  - Expecta (~> 0.3)
+  - OCMock (~> 3.1)
 
 SPEC CHECKSUMS:
-  AOTestCase: 336f8b504960f8d3723e3ed9eecb4aafc2f7c00a
-  OCHamcrest: b464725bbb48d0f1cd9c6f4ec3cb35fe0c4f2b94
-  OCMockito: eca2670b3ce4a457d316b046a36d6f2b980a4da7
-  TPWeakProxy: da4177b6ae5eff685642c1cd9698f71ef7060ea5
+  Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
+  OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
 
 COCOAPODS: 0.34.4

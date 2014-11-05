@@ -28,22 +28,26 @@
 // Collaborators
 
 // Test Support
-#import <AOTestCase/AOTestCase.h>
+#import <XCTest/XCTestCase.h>
 
-#define HC_SHORTHAND
-#import <OCHamcrest/OCHamcrest.h>
+#define EXP_SHORTHAND
+#import <Expecta/Expecta.h>
 
-#define MOCKITO_SHORTHAND
-#import <OCMockito/OCMockito.h>
+#import <OCMock/OCMock.h>
 
-@interface ALKeyboardAvoidingTextViewTests : AOTestCase
+@interface ALKeyboardAvoidingTextViewTests : XCTestCase
 @end
 
 @implementation ALKeyboardAvoidingTextViewTests
 {
   Test_ALKeyboardAvoidingTextView *sut;
-  NSLayoutConstraint *mockConstraint;
+  
+  id mockBottomConstraint;
+  id mockNotification;
+  id viewClass;
+  
   UIView *superview;
+  NSMutableDictionary *userInfo;
 }
 
 #pragma mark - Test Lifecycle
@@ -52,10 +56,19 @@
 {
   [super setUp];
   
-  mockConstraint = mock([NSLayoutConstraint class]);
-
   sut = [[Test_ALKeyboardAvoidingTextView alloc] init];
-  sut.bottomConstraintToBottomLayoutGuide = mockConstraint;
+  
+  mockBottomConstraint = OCMClassMock([NSLayoutConstraint class]);
+  sut.bottomConstraintToBottomLayoutGuide = mockBottomConstraint;
+}
+
+- (void)tearDown
+{
+  [viewClass stopMocking];
+  [mockNotification stopMocking];
+  [mockBottomConstraint stopMocking];
+  
+  [super tearDown];
 }
 
 #pragma mark - Given
@@ -66,40 +79,47 @@
   [superview addSubview:sut];
 }
 
-- (NSNotification *)givenMockNotification
+- (void)givenMockNotification
 {
-  NSNotification *notif = mock([NSNotification class]);
-  [given([notif userInfo]) willReturn:[self notificationUserInfo]];
-  return notif;
+  [self givenNotificationUserInfo];
+  
+  mockNotification = OCMClassMock([NSNotification class]);
+  OCMStub([mockNotification userInfo]).andReturn(userInfo);
 }
 
-- (NSDictionary *)notificationUserInfo
+- (void)givenNotificationUserInfo
 {
-  NSMutableDictionary *info = [NSMutableDictionary dictionary];
-  info[UIKeyboardAnimationDurationUserInfoKey] = @0.25f;
-  info[UIKeyboardAnimationCurveUserInfoKey] = @7;
-  info[UIKeyboardFrameEndUserInfoKey] = [NSValue valueWithCGRect:CGRectMake(0, 0, 320, 216)];;  ;
-  return [info copy];
+  userInfo = [NSMutableDictionary dictionary];
+  userInfo[UIKeyboardAnimationDurationUserInfoKey] = @0.25f;
+  userInfo[UIKeyboardAnimationCurveUserInfoKey] = @7;
+  userInfo[UIKeyboardFrameEndUserInfoKey] = [NSValue valueWithCGRect:CGRectMake(0, 0, 320, 216)];
 }
 
-#pragma mark - Verify
+#pragma mark - Given
 
-- (void)verifyAnimatesChange:(NSDictionary *)info
+- (void)givenViewClass
 {
-  [verify(sut.test_viewClass) beginAnimations:nil context:NULL];
-  [verify(sut.test_viewClass) setAnimationDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
-  [verify(sut.test_viewClass) setAnimationCurve:[info[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
-  [verify(sut.test_viewClass) setAnimationBeginsFromCurrentState:YES];
-  [verify(sut.test_viewClass) commitAnimations];
+  viewClass = OCMClassMock([UIView class]);
 }
 
-- (void)verifyDoesNotAnimateChange:(NSDictionary *)info
+- (void)expectAnimatesChange:(NSDictionary *)info
 {
-  [verifyCount(sut.test_viewClass, never()) beginAnimations:nil context:NULL];
-  [verifyCount(sut.test_viewClass, never()) setAnimationDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
-  [verifyCount(sut.test_viewClass, never()) setAnimationCurve:[info[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
-  [verifyCount(sut.test_viewClass, never()) setAnimationBeginsFromCurrentState:YES];
-  [verifyCount(sut.test_viewClass, never()) commitAnimations];
+  [self givenViewClass];
+  OCMExpect([viewClass beginAnimations:nil context:NULL]);
+  OCMExpect([viewClass setAnimationDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue]]);
+  OCMExpect([viewClass setAnimationCurve:[info[UIKeyboardAnimationCurveUserInfoKey] integerValue]]);
+  OCMExpect([viewClass setAnimationBeginsFromCurrentState:YES]);
+  OCMExpect([viewClass commitAnimations]);
+}
+
+- (void)expectDoesNotAnimateChange:(NSDictionary *)info
+{
+  [self givenViewClass];
+  [[viewClass reject] beginAnimations:nil context:NULL];
+  [[viewClass reject] setAnimationDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
+  [[viewClass reject] setAnimationCurve:[info[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
+  [[viewClass reject] setAnimationBeginsFromCurrentState:YES];
+  [[viewClass reject] commitAnimations];
 }
 
 #pragma mark - View - Tests
@@ -121,7 +141,7 @@
   [sut awakeFromNib];
   
   // then
-  assertThat(sut.bottomConstraintToBottomLayoutGuide, notNilValue());
+  expect(sut.bottomConstraintToBottomLayoutGuide).toNot.beNil();
 }
 
 - (void)test___awakeFromNib___sets_bottomConstraint_fromSuperViewConstraints_whenBottomConstraintIsFoundBy_secondItem
@@ -141,7 +161,7 @@
   [sut awakeFromNib];
   
   // then
-  assertThat(sut.bottomConstraintToBottomLayoutGuide, notNilValue());
+  expect(sut.bottomConstraintToBottomLayoutGuide).toNot.beNil();
 }
 
 #pragma mark - Keyboard Will Show - Tests
@@ -149,109 +169,102 @@
 - (void)test___keyboardWillShow___setsBottomConstraintConstant_asNegative_ifTextViewIsFirstItemInConstraint
 {
   // given
-  [given([mockConstraint firstItem]) willReturn:sut];
-  NSNotification *notif = [self givenMockNotification];
-  NSDictionary *info = [notif userInfo];
+  OCMStub([mockBottomConstraint firstItem]).andReturn(sut);
   
-  CGFloat expected = -1 * CGRectGetHeight([info[UIKeyboardFrameEndUserInfoKey] CGRectValue]);
+  [self givenMockNotification];
+  CGFloat expected = -1 * CGRectGetHeight([userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue]);
   
   // when
-  [sut keyboardWillShow:notif];
+  [sut keyboardWillShow:mockNotification];
   
   // then
-  [verify(sut.bottomConstraintToBottomLayoutGuide) setConstant:expected];
+  OCMVerify([mockBottomConstraint setConstant:expected]);
 }
 
 - (void)test___keyboardWillShow___setsBottomConstraintConstant_asPositive_ifTextViewIsSecondItemInConstraint
 {
   // given
-  [given([mockConstraint secondItem]) willReturn:sut];
-  NSNotification *notif = [self givenMockNotification];
-  NSDictionary *info = [notif userInfo];
-  
-  CGFloat expected = CGRectGetHeight([info[UIKeyboardFrameEndUserInfoKey] CGRectValue]);
+  OCMStub([mockBottomConstraint secondItem]).andReturn(sut);
+
+  [self givenMockNotification];
+  CGFloat expected = CGRectGetHeight([userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue]);
   
   // when
-  [sut keyboardWillShow:notif];
+  [sut keyboardWillShow:mockNotification];
   
   // then
-  [verify(sut.bottomConstraintToBottomLayoutGuide) setConstant:expected];
+  OCMVerify([mockBottomConstraint setConstant:expected]);
 }
 
 - (void)test___keyboardWillShow___callsLayoutIfNeeded_givenText
 {
   // given
-  NSNotification *notif = [self givenMockNotification];
+  [self givenMockNotification];
   
   sut.text = @"Text";
   
   // when
-  [sut keyboardWillShow:notif];
+  [sut keyboardWillShow:mockNotification];
   
   // then
-  assertThatBool(sut.called_layoutIfNeeded, equalToBool(YES));
+  expect(sut.called_layoutIfNeeded).to.beTruthy();
 }
 
 - (void)test___keyboardWillShow___callsLayoutIfNeeded_givenPlaceholderWithoutText
 {
   // given
-  NSNotification *notif = [self givenMockNotification];
+  [self givenMockNotification];
   
   sut.placeholder = @"Placeholder";
   
   // when
-  [sut keyboardWillShow:notif];
+  [sut keyboardWillShow:mockNotification];
   
   // then
-  assertThatBool(sut.called_layoutIfNeeded, equalToBool(YES));
+  expect(sut.called_layoutIfNeeded).to.beTruthy();
 }
 
 - (void)test___keyboardWillShow___animatesChange_GivenText
 {
   // given
-  NSNotification *notif = [self givenMockNotification];
-  NSDictionary *info = [notif userInfo];
-  
-  sut.test_viewClass = mockClass([UIView class]);
+  [self givenMockNotification];
+  [self expectAnimatesChange:userInfo];
   sut.text = @"Text";
   
   // when
-  [sut keyboardWillShow:notif];
+  [sut keyboardWillShow:mockNotification];
   
   // then
-  [self verifyAnimatesChange:info];
+  OCMVerifyAll(viewClass);
 }
 
 - (void)test___keyboardWillShow___doesNotAnimateChange_GivenPlaceholderWithoutText
 {
   // given
-  NSNotification *notif = [self givenMockNotification];
-  NSDictionary *info = [notif userInfo];
+  [self givenMockNotification];
+  [self expectDoesNotAnimateChange:userInfo];
   
-  sut.test_viewClass = mockClass([UIView class]);
   sut.placeholder = @"Placeholder";
   sut.text = nil;
   
   // when
-  [sut keyboardWillShow:notif];
+  [sut keyboardWillShow:mockNotification];
   
   // then
-  [self verifyDoesNotAnimateChange:info];
+  OCMVerifyAll(viewClass);
 }
 
 - (void)test___keyboardWillShow___animatesChange_GivenNoPlaceholderAndNoText
 {
   // given
-  NSNotification *notif = [self givenMockNotification];
-  NSDictionary *info = [notif userInfo];
-
-  sut.test_viewClass = mockClass([UIView class]);
+  [self givenMockNotification];
+  [self expectAnimatesChange:userInfo];
   
   // when
-  [sut keyboardWillShow:notif];
+  [sut keyboardWillShow:mockNotification];
   
   // then
-  [self verifyAnimatesChange:info];
+  OCMVerifyAll(viewClass);
 }
 
 #pragma mark - Keyboard Will Hide Tests
@@ -259,78 +272,76 @@
 - (void)test___keyboardWillHide___setsBottomConstraintConstantToZero
 {
   // given
-  [given([mockConstraint secondItem]) willReturn:sut];
-  NSNotification *notif = [self givenMockNotification];
+  OCMStub([mockBottomConstraint secondItem]).andReturn(sut);
+  [self givenMockNotification];
   
   CGFloat expected = 0;
   
   // when
-  [sut keyboardWillHide:notif];
+  [sut keyboardWillHide:mockNotification];
   
   // then
-  [verify(sut.bottomConstraintToBottomLayoutGuide) setConstant:expected];
+  OCMVerify([mockBottomConstraint setConstant:expected]);
 }
 
 - (void)test___keyboardWillHide___callsLayoutIfNeeded_givenText
 {
   // given
-  NSNotification *notif = [self givenMockNotification];
+  [self givenMockNotification];
   
   sut.text = @"Text";
   
   // when
-  [sut keyboardWillHide:notif];
+  [sut keyboardWillHide:mockNotification];
   
   // then
-  assertThatBool(sut.called_layoutIfNeeded, equalToBool(YES));
+  expect(sut.called_layoutIfNeeded).to.beTruthy();
 }
 
 - (void)test___keyboardWillHide___callsLayoutIfNeeded_givenPlaceholderWithoutText
 {
   // given
-  NSNotification *notif = [self givenMockNotification];
+  [self givenMockNotification];
   
   sut.placeholder = @"Placeholder";
   sut.text = nil;
   
   // when
-  [sut keyboardWillHide:notif];
+  [sut keyboardWillHide:mockNotification];
   
   // then
-  assertThatBool(sut.called_layoutIfNeeded, equalToBool(YES));
+  expect(sut.called_layoutIfNeeded).to.beTruthy();
 }
 
 - (void)test___keyboardWillHide___animatesChange_GivenText
 {
   // given
-  NSNotification *notif = [self givenMockNotification];
-  NSDictionary *info = [notif userInfo];
+  [self givenMockNotification];
+  [self expectAnimatesChange:userInfo];
   
-  sut.test_viewClass = mockClass([UIView class]);
   sut.text = @"Text";
   
   // when
-  [sut keyboardWillHide:notif];
+  [sut keyboardWillHide:mockNotification];
   
   // then
-  [self verifyAnimatesChange:info];
+  OCMVerifyAll(viewClass);
 }
 
 - (void)test___keyboardWillHide___doesNotAnimateChange_GivenPlaceholderWithoutText
 {
   // given
-  NSNotification *notif = [self givenMockNotification];
-  NSDictionary *info = [notif userInfo];
+  [self givenMockNotification];
+  [self expectDoesNotAnimateChange:userInfo];
   
-  sut.test_viewClass = mockClass([UIView class]);
   sut.placeholder = @"Placeholder";
   sut.text = nil;
   
   // when
-  [sut keyboardWillHide:notif];
+  [sut keyboardWillHide:mockNotification];
   
   // then
-  [self verifyDoesNotAnimateChange:info];
+  OCMVerifyAll(viewClass);
 }
 
 @end

@@ -24,22 +24,14 @@
 
 #import "Test_ALPlaceholderTextView.h"
 
-#define MOCKITO_SHORTHAND
-#import <OCMockito/OCMockito.h>
+#import <OCMock/OCMock.h>
 
 @implementation Test_ALPlaceholderTextView
 
 - (void)commonInit
 {
-  self.mockNotificationCenter = mock([NSNotificationCenter class]);
-  self.called_commonInit = YES;
-  
   [super commonInit];
-}
-
-- (NSNotificationCenter *)notificationCenter
-{
-  return self.mockNotificationCenter;
+  self.called_commonInit = YES;
 }
 
 - (void)setNeedsDisplay

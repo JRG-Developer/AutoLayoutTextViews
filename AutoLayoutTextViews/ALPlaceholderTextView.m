@@ -48,7 +48,7 @@
 
 - (void)dealloc
 {
-  [[self notificationCenter] removeObserver:self];
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)commonInit
@@ -71,30 +71,25 @@
 
 - (void)startObservingNotifications
 {
-  [[self notificationCenter] addObserver:self
+  [[NSNotificationCenter defaultCenter] addObserver:self
                                 selector:@selector(textDidChange:)
                                     name:UITextViewTextDidChangeNotification
                                   object:self];
   
-  [[self notificationCenter] addObserver:self
+  [[NSNotificationCenter defaultCenter] addObserver:self
                                 selector:@selector(textDidChange:)
                                     name:UIApplicationDidChangeStatusBarOrientationNotification
                                   object:nil];
   
-  [[self notificationCenter] addObserver:self
+  [[NSNotificationCenter defaultCenter] addObserver:self
                                 selector:@selector(keyboardWillShow:)
                                     name:UIKeyboardWillShowNotification
                                   object:nil];
   
-  [[self notificationCenter] addObserver:self
+  [[NSNotificationCenter defaultCenter] addObserver:self
                                 selector:@selector(keyboardWillHide:)
                                     name:UIKeyboardWillHideNotification
                                   object:nil];
-}
-
-- (NSNotificationCenter *)notificationCenter
-{
-  return [NSNotificationCenter defaultCenter];
 }
 
 - (void)textDidChange:(NSNotification *)notification

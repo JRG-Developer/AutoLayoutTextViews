@@ -106,11 +106,9 @@
 
 - (void)setBottomConstraintConstant:(CGFloat)constant animationInfo:(NSDictionary *)info animated:(BOOL)animated
 {
-#ifdef DEBUG
   NSAssert(self.bottomConstraintToBottomLayoutGuide,
            @"ALKeyboardAvoidingTextView's `bottomConstraint` is not connected. ALKeyboardAvoidingTextView relies on "
            @"auto layout and will not work if it's disable or if its `bottomConstraint` outlet is not set.");
-#endif
   
   self.bottomConstraintToBottomLayoutGuide.constant = constant;
   
@@ -119,12 +117,12 @@
     return;
   }
   
-  [[self viewClass] beginAnimations:nil context:NULL];
-  [[self viewClass] setAnimationDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
-  [[self viewClass] setAnimationCurve:[info[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
-  [[self viewClass] setAnimationBeginsFromCurrentState:YES];
+  [UIView beginAnimations:nil context:NULL];
+  [UIView setAnimationDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
+  [UIView setAnimationCurve:[info[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
+  [UIView setAnimationBeginsFromCurrentState:YES];
   [self layoutIfNeeded];
-  [[self viewClass] commitAnimations];
+  [UIView commitAnimations];
 }
 
 @end

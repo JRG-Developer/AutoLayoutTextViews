@@ -96,16 +96,6 @@
 - (BOOL)shouldDrawPlaceholder;
 
 /**
- *  The `NSNotficationCenter` object with which to register for notifications.
- *
- *  @discussion This method is exposed mainly for testing purposes, and you should *not* generally need to override it.
- *
- *
- *  @return Returns the `defaultCenter` by default.
- */
-- (NSNotificationCenter *)notificationCenter;
-
-/**
  *  This method is called to get the preferred rect to draw the placeholder within, taking into account the placeholder insets.
  *
  *  @param rect The rect that was passed to `drawRect:`
@@ -114,11 +104,4 @@
  */
 - (CGRect)calculatePlaceholderRectInsetInRect:(CGRect)rect;
 
-/**
- *  The view class
- *  @discussion This method is exposed to allow the `UIView` class to be mocked during unit testing. Otherwise, this method should not be called or overridden.
- *
- *  @return `[UIView class]`
- */
-- (Class)viewClass;
 @end

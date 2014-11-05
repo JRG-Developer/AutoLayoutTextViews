@@ -24,15 +24,7 @@
 
 #import "Test_ALKeyboardAvoidingTextView.h"
 
-#define MOCKITO_SHORTHAND
-#import <OCMockito/OCMockito.h>
-
 @implementation Test_ALKeyboardAvoidingTextView
-
-- (Class)viewClass
-{
-  return self.test_viewClass;
-}
 
 - (void)layoutIfNeeded
 {

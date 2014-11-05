@@ -36,4 +36,16 @@
   return self.test_viewClass;
 }
 
+- (void)setNeedsUpdateConstraints
+{
+  [super setNeedsUpdateConstraints];
+  self.called_setNeedsUpdateConstraints = YES;
+}
+
+- (void)updateConstraintsIfNeeded
+{
+  [super updateConstraintsIfNeeded];
+  self.called_updateConstraintsIfNeeded = YES;
+}
+
 @end

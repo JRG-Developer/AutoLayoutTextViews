@@ -28,20 +28,22 @@
 // Collaborators
 
 // Test Support
-#import <AOTestCase/AOTestCase.h>
+#import <XCTest/XCTestCase.h>
 
-#define HC_SHORTHAND
-#import <OCHamcrest/OCHamcrest.h>
+#define EXP_SHORTHAND
+#import <Expecta/Expecta.h>
 
-#define MOCKITO_SHORTHAND
-#import <OCMockito/OCMockito.h>
+#import <OCMock/OCMock.h>
 
-@interface ALPlaceholderTextViewTests : AOTestCase
+@interface ALPlaceholderTextViewTests : XCTestCase
 @end
 
 @implementation ALPlaceholderTextViewTests
 {
   Test_ALPlaceholderTextView *sut;
+  
+  id mockPlaceholder;
+  id notificationCenter;
 }
 
 #pragma mark - Test Lifecycle
@@ -49,17 +51,24 @@
 - (void)setUp
 {
   [super setUp];
+  
+  notificationCenter = OCMPartialMock([NSNotificationCenter defaultCenter]);
   sut = [[Test_ALPlaceholderTextView alloc] initWithFrame:CGRectZero];
+}
+
+- (void)tearDown
+{
+  [notificationCenter stopMocking];
+  [super tearDown];
 }
 
 #pragma mark - Utilities
 
 - (void)givenMockPlaceholder
 {
-  NSString *mockPlaceholder = mock([NSString class]);
-  [given([mockPlaceholder length]) willReturnInt:1];
-  [given([mockPlaceholder copy]) willReturn:mockPlaceholder];
-  
+  mockPlaceholder = OCMClassMock([NSString class]);
+  OCMStub([mockPlaceholder length]).andReturn(1);
+  OCMStub([mockPlaceholder copy]).andReturn(mockPlaceholder);
   sut.placeholder = mockPlaceholder;
 }
 
@@ -67,7 +76,7 @@
 
 - (void)test___init___calls___commonInit
 {
-  assertThatBool(sut.called_commonInit, equalToBool(YES));
+  expect(sut.called_commonInit).to.beTruthy();
 }
 
 - (void)test___initWithCoder___calls___commonInit
@@ -76,17 +85,17 @@
   sut = [[Test_ALPlaceholderTextView alloc] initWithCoder:nil];
   
   // then
-  assertThatBool(sut.called_commonInit, equalToBool(YES));
+  expect(sut.called_commonInit).to.beTruthy();
 }
 
 - (void)test_placeholderIsNilByDefault
 {
-  assertThat(sut.placeholder, nilValue());
+  expect(sut.placeholder).to.beNil();
 }
 
 - (void)test_placeholderColorIsLightGrayColorByDefault
 {
-  assertThat(sut.placeholderColor, equalTo([UIColor lightGrayColor]));
+  expect(sut.placeholderColor).to.equal([UIColor lightGrayColor]);
 }
 
 - (void)test_placeholderInsetsSetToCorrectDefaultValue
@@ -98,39 +107,39 @@
   UIEdgeInsets actual = sut.placeholderInsets;
   
   // then
-  assertThatBool(UIEdgeInsetsEqualToEdgeInsets(actual, expected), equalToBool(YES));;
+  expect(UIEdgeInsetsEqualToEdgeInsets(actual, expected)).to.beTruthy();
 }
 
 - (void)test_observes_UITextViewTextDidChangeNotification
 {
-  [verify(sut.mockNotificationCenter) addObserver:sut
-                                         selector:@selector(textDidChange:)
-                                             name:UITextViewTextDidChangeNotification
-                                           object:sut];
+  OCMVerify([notificationCenter addObserver:sut
+                                   selector:@selector(textDidChange:)
+                                       name:UITextViewTextDidChangeNotification
+                                     object:sut]);
 }
 
 - (void)test_observes_UIApplicationDidChangeStatusBarOrientationNotification
 {
-  [verify(sut.mockNotificationCenter) addObserver:sut
-                                         selector:@selector(textDidChange:)
-                                             name:UIApplicationDidChangeStatusBarOrientationNotification
-                                           object:nil];
+  OCMVerify([notificationCenter addObserver:sut
+                                   selector:@selector(textDidChange:)
+                                       name:UIApplicationDidChangeStatusBarOrientationNotification
+                                     object:nil]);
 }
 
 - (void)test_observes_UIKeyboardWillShowNotification
 {
-  [verify(sut.mockNotificationCenter) addObserver:sut
-                                         selector:@selector(keyboardWillShow:)
-                                             name:UIKeyboardWillShowNotification
-                                           object:nil];
+  OCMVerify([notificationCenter addObserver:sut
+                                   selector:@selector(keyboardWillShow:)
+                                       name:UIKeyboardWillShowNotification
+                                     object:nil]);
 }
 
 - (void)test_observes_UIKeyboardWillHideNotification
 {
-  [verify(sut.mockNotificationCenter) addObserver:sut
-                                         selector:@selector(keyboardWillHide:)
-                                             name:UIKeyboardWillHideNotification
-                                           object:nil];
+  OCMVerify([notificationCenter addObserver:sut
+                                   selector:@selector(keyboardWillHide:)
+                                       name:UIKeyboardWillHideNotification
+                                     object:nil]);
 }
 
 - (void)test___textDidChange__calls___setNeedsDisplay
@@ -139,7 +148,7 @@
   [sut textDidChange:nil];
   
   // then
-  assertThatBool(sut.called_setNeedsDisplay, equalToBool(YES));
+  expect(sut.called_setNeedsDisplay).to.beTruthy();
 }
 
 - (void)test___keyboardWillShow___calls___setNeedsDisplay
@@ -148,7 +157,7 @@
   [sut keyboardWillShow:nil];
   
   // then
-  assertThatBool(sut.called_setNeedsDisplay, equalToBool(YES));
+  expect(sut.called_setNeedsDisplay).to.beTruthy();
 }
 
 - (void)test___keyboardWillHide___calls___setNeedsDisplay
@@ -157,7 +166,7 @@
   [sut keyboardWillHide:nil];
   
   // then
-  assertThatBool(sut.called_setNeedsDisplay, equalToBool(YES));
+  expect(sut.called_setNeedsDisplay).to.beTruthy();
 }
 
 - (void)test___drawRect___returnsNO_ifHasText
@@ -170,7 +179,7 @@
   BOOL actual = [sut shouldDrawPlaceholder];
   
   // then
-  assertThatBool(actual, equalToBool(expected));
+  expect(actual).to.equal(expected);
 }
 
 - (void)test___drawRect___returnsNO_ifPlaceholderLengthIsZero
@@ -183,7 +192,7 @@
   BOOL actual = [sut shouldDrawPlaceholder];
   
   // then
-  assertThatBool(actual, equalToBool(expected));
+  expect(actual).to.equal(expected);
 }
 
 - (void)test___drawRect___givenTextDoesNotDrawPlaceholder
@@ -193,11 +202,13 @@
   sut.text = @"Some Text";
   CGRect rect = CGRectMake(0.0f, 0.0f, 320.0f, 50.0f);
   
+  [[[mockPlaceholder reject] ignoringNonObjectArgs] drawInRect:rect withAttributes:[OCMArg any]];
+  
   // when
   [sut drawRect:rect];
   
   // then
-  [verifyCount(sut.placeholder, never()) drawInRect:rect withAttributes:anything()];
+  OCMVerifyAll(mockPlaceholder);
 }
 
 - (void)test___drawRect___drawsPlaceholder
@@ -212,7 +223,7 @@
   CGRect placeholderRect = [sut calculatePlaceholderRectInsetInRect:rect];
   
   // then
-  [verify(sut.placeholder) drawInRect:placeholderRect withAttributes:anything()];
+  OCMVerify([mockPlaceholder drawInRect:placeholderRect withAttributes:[OCMArg any]]);
 }
 
 @end

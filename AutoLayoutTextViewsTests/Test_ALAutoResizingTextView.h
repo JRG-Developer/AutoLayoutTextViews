@@ -27,4 +27,8 @@
 @interface Test_ALAutoResizingTextView : ALAutoResizingTextView
 @property (assign, nonatomic) CGSize test_sizeThatFits;
 @property (strong, nonatomic) Class test_viewClass;
+
+@property (assign, nonatomic) BOOL called_setNeedsUpdateConstraints;
+@property (assign, nonatomic) BOOL called_updateConstraintsIfNeeded;
+
 @end

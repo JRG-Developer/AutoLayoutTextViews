@@ -5,6 +5,6 @@ target "AutoLayoutTextViews" do
 end
 
 target "AutoLayoutTextViewsTests" do
-  pod 'AOTestCase', '~>1.0'
-  pod 'OCMockito', '~> 1.3'
+  pod 'Expecta', '~> 0.3'
+  pod 'OCMock', '~> 3.1'
 end

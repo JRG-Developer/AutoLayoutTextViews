@@ -28,13 +28,12 @@
 // Collaborators
 
 // Test Support
-#import <AOTestCase/AOTestCase.h>
+#import <XCTest/XCTestCase.h>
 
-#define HC_SHORTHAND
-#import <OCHamcrest/OCHamcrest.h>
+#define EXP_SHORTHAND
+#import <Expecta/Expecta.h>
 
-#define MOCKITO_SHORTHAND
-#import <OCMockito/OCMockito.h>
+#import <OCMock/OCMock.h>
 
 @interface ALAutoResizingTextView (Test_Methods)
 
@@ -57,13 +56,15 @@
 
 @end
 
-@interface ALAutoResizingTextViewTests : AOTestCase
+@interface ALAutoResizingTextViewTests : XCTestCase
 @end
 
 @implementation ALAutoResizingTextViewTests
 {
   Test_ALAutoResizingTextView *sut;
-  id <ALAutoResizingTextViewDelegate> delegate;
+  
+  id delegate;
+  id viewClass;
 }
 
 #pragma mark - Test Lifecycle
@@ -76,11 +77,19 @@
   [self givenHeightConstraint];
 }
 
+- (void)tearDown
+{
+  [delegate stopMocking];
+  [viewClass stopMocking];
+  
+  [super tearDown];
+}
+
 #pragma mark - Given
 
 - (void)givenMockDelegate
 {
-  delegate = mockProtocol(@protocol(ALAutoResizingTextViewDelegate));
+  delegate = OCMProtocolMock(@protocol(ALAutoResizingTextViewDelegate));
   sut.delegate = delegate;
 }
 
@@ -109,24 +118,29 @@
   sut.test_sizeThatFits = CGSizeMake(300.0f, 50.0f);
 }
 
+- (void)givenMockViewClass
+{
+  viewClass = OCMClassMock([UIView class]);
+}
+
 #pragma mark - Object LifeCycle - Tests
 
 - (void)test___commonInit___setsMinimumHeight
 {
-  assertThatFloat(sut.minimumHeight, equalToFloat(0.0f));
+  expect(sut.minimumHeight).to.equal(0.0f);
 }
 
 - (void)test___commonInit___setsMaximumHeight
 {
-  assertThatFloat(sut.maximumHeight, equalToFloat(CGFLOAT_MAX));
+  expect(sut.maximumHeight).to.equal(CGFLOAT_MAX);
 }
 
 - (void)test___commonInit___setsAutoresizingAnimationDuration
 {
-  assertThatFloat(sut.autoresizingAnimationDuration, equalToFloat(0.2f));
+  expect(sut.autoresizingAnimationDuration).to.equal(0.2f);
 }
 
-#pragma mark - View - Tests
+#pragma mark - awakwFromNib - Tests
 
 - (void)test___awakeFromNib___setsHeightConstraint_whenHeightConstraintFoundBy_firstItem
 {
@@ -144,127 +158,102 @@
   [sut awakeFromNib];
   
   // then
-  assertThat(sut.heightConstraint, notNilValue());
+  expect(sut.heightConstraint).toNot.beNil();
 }
 
-- (void)test___layoutSubViews___updatesHeightConstraint
+#pragma mark - layoutSubviews - Tests
+
+- (void)test___layoutSubviews___calls_setNeedsUpdateConstraints
 {
-  // given
-  [self givenAboutToChangeHeight];
-  sut.test_viewClass = [UIView class];
-  
-  CGFloat expected = sut.test_sizeThatFits.height + sut.contentInset.top;
-  
   // when
   [sut layoutSubviews];
   
   // then
-  assertThatFloat(sut.heightConstraint.constant, equalToFloat(expected));
+  expect(sut.called_setNeedsUpdateConstraints).to.beTruthy();
 }
 
-- (void)test___layoutSubViews___animatesHeightChange_ifAutoresizingAnimationDurationGreaterThanZero
+- (void)test___layoutSubviews___calls_updateConstraintsIfNeeded
 {
-  // given
-  [self givenAboutToChangeHeight];
-  sut.test_viewClass = mockClass([UIView class]);
-  
   // when
   [sut layoutSubviews];
   
   // then
-  [verify(sut.test_viewClass) animateWithDuration:sut.autoresizingAnimationDuration
-                                            delay:0.0f
-                                         options:UIViewAnimationOptionAllowUserInteraction |
-                                                 UIViewAnimationOptionBeginFromCurrentState
-                                      animations:anything()
-                                      completion:anything()];
+  expect(sut.called_updateConstraintsIfNeeded).to.beTruthy();
 }
 
-- (void)test___layoutSubViews___doesNotAnimateHeightChange_ifAutoresizingAnimationDurationEqualsZero
+#pragma mark - updateConstraints - Tests
+
+- (void)test___updateConstraints___animatesHeightChange_ifAutoresizingAnimationDurationGreaterThanZero
+{
+  // given
+  [self givenAboutToChangeHeight];
+  [self givenMockViewClass];
+  
+  OCMExpect([viewClass animateWithDuration:sut.autoresizingAnimationDuration
+                                     delay:0.0f
+                                   options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
+                                animations:[OCMArg any]
+                                completion:[OCMArg any]]);
+  
+  // when
+  [sut updateConstraints];
+  
+  // then
+  OCMVerifyAll(viewClass);
+}
+
+- (void)test___updateConstraints___doesNotAnimateHeightChange_ifAutoresizingAnimationDurationEqualsZero
 {
   [self givenAboutToChangeHeight];
-  sut.test_viewClass = mockClass([UIView class]);
+  [self givenMockViewClass];
+  
+  [[[viewClass reject] ignoringNonObjectArgs] animateWithDuration:sut.autoresizingAnimationDuration
+                                                            delay:0.0f
+                                                          options:UIViewAnimationOptionAllowUserInteraction |
+                                                                  UIViewAnimationOptionBeginFromCurrentState
+                                                       animations:[OCMArg any]
+                                                       completion:[OCMArg any]];
+  
   sut.autoresizingAnimationDuration = 0;
   
   // when
-  [sut layoutSubviews];
+  [sut updateConstraints];
   
   // then
-  [verifyCount(sut.test_viewClass, never()) animateWithDuration:sut.autoresizingAnimationDuration
-                                                          delay:0.0f
-                                                        options:UIViewAnimationOptionAllowUserInteraction |
-                                                                UIViewAnimationOptionBeginFromCurrentState
-                                                     animations:anything()
-                                                     completion:anything()];
+  OCMVerifyAllWithDelay(viewClass, 0.01);
 }
 
-- (void)test_heightChangeAnimationBlock_notifiesDelegateWillChangeHeight
-{
-  // given
-  [self givenMockDelegate];
-  [self givenAboutToChangeHeight];
-
-  sut.test_viewClass = mockClass([UIView class]);
-  MKTArgumentCaptor *captor = [[MKTArgumentCaptor alloc] init];
-  
-  // when
-  [sut layoutSubviews];
-  
-  // then
-  [verify(sut.test_viewClass) animateWithDuration:sut.autoresizingAnimationDuration
-                                            delay:0.0f
-                                          options:UIViewAnimationOptionAllowUserInteraction |
-   UIViewAnimationOptionBeginFromCurrentState
-                                       animations:[captor capture]
-                                       completion:anything()];
-
-  void (^animationBlock)() = [captor value];
-  animationBlock();
-  
-  [verify(sut.delegate) textView:sut willChangeFromHeight:sut.oldHeight toHeight:sut.newHeight];
-  [verifyCount(sut.delegate, never()) textView:sut didChangeFromHeight:sut.oldHeight toHeight:sut.newHeight];
-}
-
-- (void)test_heightChangeCompletionBlock_notifiesDelegateDidChangeHeight
+- (void)test_heightChangeWithAnimation_notifies_delegate
 {
   // given
   [self givenMockDelegate];
   [self givenAboutToChangeHeight];
   
-  sut.test_viewClass = mockClass([UIView class]);
-  MKTArgumentCaptor *captor = [[MKTArgumentCaptor alloc] init];
+  [[[delegate expect] ignoringNonObjectArgs] textView:sut willChangeFromHeight:0.0f toHeight:0.0f];
+  [[[delegate expect] ignoringNonObjectArgs] textView:sut didChangeFromHeight:0.0f toHeight:0.0f];
   
   // when
-  [sut layoutSubviews];
+  [sut updateConstraints];
   
   // then
-  [verify(sut.test_viewClass) animateWithDuration:sut.autoresizingAnimationDuration
-                                            delay:0.0f
-                                          options:UIViewAnimationOptionAllowUserInteraction |
-   UIViewAnimationOptionBeginFromCurrentState
-                                       animations:anything()
-                                       completion:[captor capture]];
-  
-  void (^completionBlock)(BOOL) = [captor value];
-  completionBlock(YES);
-  
-  [verify(sut.delegate) textView:sut didChangeFromHeight:sut.oldHeight toHeight:sut.newHeight];
-  [verifyCount(sut.delegate, never()) textView:sut willChangeFromHeight:sut.oldHeight toHeight:sut.newHeight];
+  OCMVerifyAllWithDelay(delegate, 0.1);
 }
 
-- (void)test_heightChangeWithoutAnimation_notifiesDelegateWillAndDidChangeHeight
+- (void)test_heightChangeWithoutAnimation_notifies_delegate
 {
   // given
+  sut.autoresizingAnimationDuration = 0.0f;
   [self givenMockDelegate];
   [self givenAboutToChangeHeight];
-  sut.autoresizingAnimationDuration = 0;
+  
+  [[[delegate expect] ignoringNonObjectArgs] textView:sut willChangeFromHeight:0.0f toHeight:0.0f];
+  [[[delegate expect] ignoringNonObjectArgs] textView:sut didChangeFromHeight:0.0f toHeight:0.0f];
   
   // when
-  [sut layoutSubviews];
+  [sut updateConstraints];
   
   // then
-  [verify(sut.delegate) textView:sut willChangeFromHeight:sut.oldHeight toHeight:sut.newHeight];
-  [verify(sut.delegate) textView:sut didChangeFromHeight:sut.oldHeight toHeight:sut.newHeight];
+  OCMVerifyAll(delegate);
 }
 
 @end

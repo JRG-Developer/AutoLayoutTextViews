@@ -138,12 +138,11 @@
 
 - (void)animateHeightChange
 {
-  [[self viewClass] animateWithDuration:self.autoresizingAnimationDuration
-                                  delay:0.0f
-                                options:UIViewAnimationOptionAllowUserInteraction |
-                                        UIViewAnimationOptionBeginFromCurrentState
-                             animations:[self animationBlock]
-                             completion:[self completionBlock]];
+  [UIView animateWithDuration:self.autoresizingAnimationDuration
+                        delay:0.0f
+                      options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
+                   animations:[self animationBlock]
+                   completion:[self completionBlock]];
 }
 
 - (void)setNewHeightWithoutAnimation

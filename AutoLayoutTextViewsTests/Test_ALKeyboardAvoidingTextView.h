@@ -25,6 +25,5 @@
 #import "ALKeyboardAvoidingTextView.h"
 
 @interface Test_ALKeyboardAvoidingTextView : ALKeyboardAvoidingTextView
-@property (strong, nonatomic) Class test_viewClass;
 @property  (assign, nonatomic) BOOL called_layoutIfNeeded;
 @end

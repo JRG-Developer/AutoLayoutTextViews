@@ -27,5 +27,4 @@
 @interface Test_ALPlaceholderTextView : ALPlaceholderTextView
 @property (assign, nonatomic) BOOL called_commonInit;
 @property (assign, nonatomic) BOOL called_setNeedsDisplay;
-@property (strong, nonatomic) NSNotificationCenter *mockNotificationCenter;
 @end
