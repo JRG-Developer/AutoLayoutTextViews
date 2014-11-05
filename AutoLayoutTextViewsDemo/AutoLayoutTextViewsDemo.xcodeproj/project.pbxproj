@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42D015801A09C82B00D2950F /* ALTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D0157F1A09C82B00D2950F /* ALTextViewCell.m */; };
 		4460851A194286690093A6FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44608518194286690093A6FA /* InfoPlist.strings */; };
 		4460851C194286690093A6FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460851B194286690093A6FA /* main.m */; };
 		44608520194286690093A6FA /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460851F194286690093A6FA /* ALAppDelegate.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42D0157E1A09C82B00D2950F /* ALTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTextViewCell.h; sourceTree = "<group>"; };
+		42D0157F1A09C82B00D2950F /* ALTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTextViewCell.m; sourceTree = "<group>"; };
 		4460850C194286690093A6FA /* AutoLayoutTextViewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutTextViewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44608517194286690093A6FA /* AutoLayoutTextViewsDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AutoLayoutTextViewsDemo-Info.plist"; sourceTree = "<group>"; };
 		44608519194286690093A6FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 		4460854B1942887F0093A6FA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42D0157E1A09C82B00D2950F /* ALTextViewCell.h */,
+				42D0157F1A09C82B00D2950F /* ALTextViewCell.m */,
 				44608521194286690093A6FA /* Main.storyboard */,
 			);
 			name = Views;
@@ -236,6 +241,7 @@
 				448D9DF61946743300453E69 /* ALTextViewController.m in Sources */,
 				92D8DF881A09AB16006F106A /* ALAutoResizingTextViewTableViewController.m in Sources */,
 				44608526194286690093A6FA /* ALTableViewController.m in Sources */,
+				42D015801A09C82B00D2950F /* ALTextViewCell.m in Sources */,
 				4460851C194286690093A6FA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

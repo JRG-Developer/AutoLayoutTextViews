@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.textView.placeholder = @"Placeholder Text";
+  self.textView.placeholder = NSLocalizedString(@"Placeholder Text", nil);
   [self setUpDoneButton];
 }
 

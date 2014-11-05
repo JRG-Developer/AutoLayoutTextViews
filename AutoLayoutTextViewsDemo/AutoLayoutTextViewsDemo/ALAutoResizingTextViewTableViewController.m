@@ -7,10 +7,17 @@
 //
 
 #import "ALAutoResizingTextViewTableViewController.h"
+#import "ALTextViewCell.h"
 
 @implementation ALAutoResizingTextViewTableViewController
 
 - (void)viewDidLoad
+{
+  [super viewDidLoad];  
+  [self configureTableView];
+}
+
+- (void)configureTableView
 {
   self.tableView.rowHeight = UITableViewAutomaticDimension;
   self.tableView.estimatedRowHeight = 44.0;
@@ -24,7 +31,7 @@
   [self.tableView endUpdates];
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -38,7 +45,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return [self.tableView dequeueReusableCellWithIdentifier:@"ALAutoResizingCell" forIndexPath:indexPath];
+  ALTextViewCell *cell = (ALTextViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"ALTextViewCell" forIndexPath:indexPath];
+  cell.textView.placeholder = NSLocalizedString(@"Placeholder Text", nil);
+  return cell;
 }
 
 @end
