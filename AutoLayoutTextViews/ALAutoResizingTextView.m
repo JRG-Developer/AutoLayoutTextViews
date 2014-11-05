@@ -91,8 +91,8 @@
 
 - (void)updateConstraints
 {
-  [super updateConstraints];
   [self updateHeightConstraint];
+  [super updateConstraints];
 }
 
 - (void)updateHeightConstraint
