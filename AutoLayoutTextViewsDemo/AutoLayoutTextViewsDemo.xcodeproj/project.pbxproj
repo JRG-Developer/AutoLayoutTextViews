@@ -347,6 +347,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch";
 				INFOPLIST_FILE = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = AutoLayoutTextViewsDemo;
 				WRAPPER_EXTENSION = app;
 			};
@@ -361,6 +362,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch";
 				INFOPLIST_FILE = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = AutoLayoutTextViewsDemo;
 				WRAPPER_EXTENSION = app;
 			};

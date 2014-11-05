@@ -39,7 +39,7 @@
 - (void)setUpDoneButton
 {
   UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", nil)
-                                                                 style:UIBarButtonItemStyleBordered
+                                                                 style:UIBarButtonItemStyleDone
                                                                 target:self
                                                                 action:@selector(doneButtonPressed:)];
   self.navigationItem.rightBarButtonItem = doneButton;
