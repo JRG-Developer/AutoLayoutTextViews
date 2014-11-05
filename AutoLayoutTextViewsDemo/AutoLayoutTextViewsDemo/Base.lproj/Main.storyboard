@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="MeB-Ss-lPV">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
@@ -212,7 +211,7 @@
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ucB-YV-Eno"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                             <connections>
                                                 <outlet property="delegate" destination="EBp-AD-GQU" id="2Yf-aE-HJ2"/>
                                                 <outlet property="heightConstraint" destination="ucB-YV-Eno" id="pXm-L3-bvr"/>
@@ -221,7 +220,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="29v-PX-PTQ" firstAttribute="top" secondItem="fTt-Rj-WlB" secondAttribute="top" constant="8" id="2CE-pB-hea"/>
-                                        <constraint firstAttribute="trailing" secondItem="29v-PX-PTQ" secondAttribute="trailing" constant="8" id="OZb-DK-taZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="29v-PX-PTQ" secondAttribute="trailing" priority="999" constant="8" id="OZb-DK-taZ"/>
                                         <constraint firstItem="29v-PX-PTQ" firstAttribute="leading" secondItem="fTt-Rj-WlB" secondAttribute="leading" constant="8" id="TVK-rG-dT5"/>
                                         <constraint firstAttribute="bottom" secondItem="29v-PX-PTQ" secondAttribute="bottom" priority="999" constant="8" id="VKn-JR-hFb"/>
                                     </constraints>

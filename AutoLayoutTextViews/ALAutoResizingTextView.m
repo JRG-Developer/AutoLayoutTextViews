@@ -133,7 +133,7 @@
 
 - (BOOL)shouldAnimateHeightChange
 {
-  return self.autoresizingAnimationDuration > 0;
+  return self.autoresizingAnimationDuration > 0 && ![self shouldDrawPlaceholder];
 }
 
 - (void)animateHeightChange

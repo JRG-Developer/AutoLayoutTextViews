@@ -223,6 +223,30 @@
   OCMVerifyAllWithDelay(viewClass, 0.01);
 }
 
+- (void)test___updateConstraints___doesNotAnimateHieght_ifShouldDrawPlaceholderReturnsYES
+{
+  // given
+  sut.placeholder = @"Placeholder";
+  sut.text = @"";
+  expect([sut shouldDrawPlaceholder]).to.beTruthy();
+  
+  [self givenAboutToChangeHeight];
+  [self givenMockViewClass];
+  
+  [[[viewClass reject] ignoringNonObjectArgs] animateWithDuration:sut.autoresizingAnimationDuration
+                                                            delay:0.0f
+                                                          options:UIViewAnimationOptionAllowUserInteraction |
+   UIViewAnimationOptionBeginFromCurrentState
+                                                       animations:[OCMArg any]
+                                                       completion:[OCMArg any]];
+  
+  // when
+  [sut updateConstraints];
+  
+  // then
+  OCMVerifyAllWithDelay(viewClass, 0.01);
+}
+
 - (void)test_heightChangeWithAnimation_notifies_delegate
 {
   // given
