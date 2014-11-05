@@ -53,7 +53,27 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="WMF-SK-HaE" kind="push" id="TFV-MM-US1"/>
+                                            <segue destination="WMF-SK-HaE" kind="push" id="8Je-ZC-hUf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="9ws-Ou-iNs" style="IBUITableViewCellStyleDefault" id="zSJ-Ml-soJ">
+                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zSJ-Ml-soJ" id="sx5-Ci-RC4">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Auto Resizing Text (Table View)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9ws-Ou-iNs">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="EBp-AD-GQU" kind="push" id="lIV-x6-5Zy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Azw-qE-ne8" style="IBUITableViewCellStyleDefault" id="s4o-Eu-D3s">
@@ -169,7 +189,57 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSe-61-eNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408" y="422"/>
+            <point key="canvasLocation" x="60" y="676"/>
+        </scene>
+        <!--Auto Resizing Text View (Table View)-->
+        <scene sceneID="IDW-BA-ZO4">
+            <objects>
+                <tableViewController id="EBp-AD-GQU" userLabel="Auto Resizing Text View (Table View)" customClass="ALAutoResizingTextViewTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mGU-d6-8Y0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" selectionStyle="default" indentationWidth="10" reuseIdentifier="ALAutoResizingCell" rowHeight="70" id="MeF-uH-jxW">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" tableViewCell="MeF-uH-jxW" id="fTt-Rj-WlB">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Type text here" translatesAutoresizingMaskIntoConstraints="NO" id="29v-PX-PTQ" customClass="ALAutoResizingTextView">
+                                            <rect key="frame" x="8" y="8" width="304" height="53"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ucB-YV-Eno"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="EBp-AD-GQU" id="2Yf-aE-HJ2"/>
+                                                <outlet property="heightConstraint" destination="ucB-YV-Eno" id="pXm-L3-bvr"/>
+                                            </connections>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="29v-PX-PTQ" firstAttribute="top" secondItem="fTt-Rj-WlB" secondAttribute="top" constant="8" id="2CE-pB-hea"/>
+                                        <constraint firstAttribute="trailing" secondItem="29v-PX-PTQ" secondAttribute="trailing" constant="8" id="OZb-DK-taZ"/>
+                                        <constraint firstItem="29v-PX-PTQ" firstAttribute="leading" secondItem="fTt-Rj-WlB" secondAttribute="leading" constant="8" id="TVK-rG-dT5"/>
+                                        <constraint firstAttribute="bottom" secondItem="29v-PX-PTQ" secondAttribute="bottom" constant="8" id="VKn-JR-hFb"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="EBp-AD-GQU" id="EGs-T2-kkn"/>
+                            <outlet property="delegate" destination="EBp-AD-GQU" id="00Z-CA-3eT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Auto Resizing Text (Table View)" id="g2I-mC-GAf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pas-RO-oC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="462" y="342"/>
         </scene>
         <!--Auto Resizing-->
         <scene sceneID="WaM-Ek-bHi">
@@ -180,7 +250,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CWj-l0-bs4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oGy-7l-Lal">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="aDe-Xb-cR5" customClass="ALAutoResizingTextView">
