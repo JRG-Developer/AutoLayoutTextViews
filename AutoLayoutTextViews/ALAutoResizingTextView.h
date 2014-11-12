@@ -36,8 +36,8 @@
  *	Tells the delegate that the text view's height is about to change.
  *
  *	@param	textView	The text view whose height is about to change
- *	@param	oldHeight	The current height of the text view's frame
- *	@param	newHeight	The new height of the text view's frame
+ *	@param	oldHeight	The current height of the text view
+ *	@param	newHeight	The new height of the text view
  *
  *  @discussion This method gets called in the animation block.
  */
@@ -47,12 +47,13 @@
  *	Tells the delegate that the text view's height did change.
  *
  *	@param	textView	The text view whose height did change
- *	@param	oldHeight	The previous height of the text view's frame
- *	@param	newHeight	The new height of the text view's frame
+ *	@param	oldHeight	The previous height of the text view
+ *	@param	newHeight	The current height of the text view
  *
  *  @discussion This method gets called in the animation completion block.
  */
 - (void)textView:(ALAutoResizingTextView *)textView didChangeFromHeight:(CGFloat)oldHeight toHeight:(CGFloat)newHeight;
+
 @end
 
 /**
@@ -87,7 +88,7 @@
  *  @discussion The default value is `0.2`.
  *  If you set this value to `0`, the height will be updated without animation.
  */
-@property (nonatomic) NSTimeInterval autoresizingAnimationDuration;
+@property (assign, nonatomic) NSTimeInterval autoresizingAnimationDuration;
 
 /**
  *  The height constraint
