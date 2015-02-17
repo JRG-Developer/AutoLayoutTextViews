@@ -34,14 +34,14 @@
  *
  *  @discussion The default value is `nil`.
  */
-@property (strong, nonatomic) NSString *placeholder;
+@property (strong, nonatomic) IBInspectable NSString *placeholder;
 
 /**
  *	The color of the placeholder
  *
  *  @discussion The default value is `[UIColor lightGrayColor]`.
  */
-@property (strong, nonatomic) UIColor *placeholderColor;
+@property (strong, nonatomic) IBInspectable UIColor *placeholderColor;
 
 /**
  *  The placeholder insets
