@@ -25,6 +25,7 @@
 #import "ALAutoResizingTextView.h"
 
 @implementation ALAutoResizingTextView
+@dynamic delegate;
 
 #pragma mark - Object Lifecycle
 
