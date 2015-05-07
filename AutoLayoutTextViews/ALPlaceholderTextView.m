@@ -132,6 +132,12 @@
   }
 }
 
+- (void)setText:(NSString *)text
+{
+  [super setText:text];
+  [self setNeedsDisplay];
+}
+
 #pragma mark - Draw Rect
 
 - (void)drawRect:(CGRect)rect

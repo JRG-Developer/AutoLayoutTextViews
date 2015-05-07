@@ -169,6 +169,15 @@
   expect(sut.called_setNeedsDisplay).to.beTruthy();
 }
 
+- (void)test___setText___calls___setsNeedsDisplay {
+  
+  // when
+  [sut setNeedsDisplay];
+  
+  // then
+  expect(sut.called_setNeedsDisplay).to.beTruthy();
+}
+
 - (void)test___drawRect___returnsNO_ifHasText
 {
   // given
