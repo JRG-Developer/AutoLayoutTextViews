@@ -72,7 +72,7 @@
  *  @discussion The default value is `0`. 
  *  If you attempt to set a negative value, `minimumHeight` will be set to `0`.
  */
-@property (assign, nonatomic) CGFloat minimumHeight;
+@property (assign, nonatomic) IBInspectable CGFloat minimumHeight;
 
 /**
  *	The maximum height for the text view.
@@ -80,7 +80,7 @@
  *  @discussion The default value is `CGFloat_MAX`. 
  *  If you attempt to set a value less than or equal to zero, `maximumHeight` will be set to `CGFloat_Max`.
  */
-@property (assign, nonatomic) CGFloat maximumHeight;
+@property (assign, nonatomic) IBInspectable CGFloat maximumHeight;
 
 /**
  *	The autoresizing animation duration.
@@ -88,7 +88,7 @@
  *  @discussion The default value is `0.2`.
  *  If you set this value to `0`, the height will be updated without animation.
  */
-@property (assign, nonatomic) NSTimeInterval autoresizingAnimationDuration;
+@property (assign, nonatomic) IBInspectable NSTimeInterval autoresizingAnimationDuration;
 
 /**
  *  The height constraint

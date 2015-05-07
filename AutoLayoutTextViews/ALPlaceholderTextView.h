@@ -48,7 +48,7 @@
  *
  *  @discussion The default value is set to `UIEdgeInsetsMake(8.0f, 4.0f, 0.0f, 0.0f)`.
  */
-@property (assign, nonatomic, readwrite) UIEdgeInsets placeholderInsets;
+@property (assign, nonatomic, readwrite) IBInspectable UIEdgeInsets placeholderInsets;
 
 @end
 
