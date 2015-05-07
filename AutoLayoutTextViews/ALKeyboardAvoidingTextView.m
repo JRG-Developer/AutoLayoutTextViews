@@ -126,7 +126,7 @@
   
   // Warning-- this method is needed to animate scrolling to selection, but this call isn't in the unit tests
   // there's some issues around testing this that I haven't been able to get around... :/ -JRG
-  if (self.selectedTextRange) {
+  if (!self.selectedTextRange.empty) {
     self.contentOffset = [self caretRectForPosition:self.selectedTextRange.start].origin;
   }
   
