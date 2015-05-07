@@ -24,6 +24,10 @@
 
 #import "ALKeyboardAvoidingTextView.h"
 
+@interface ALKeyboardAvoidingTextView()
+@property (nonatomic, assign) CGFloat bottomConstraintToBottomLayoutGuideConstant;
+@end
+
 @implementation ALKeyboardAvoidingTextView
 
 #pragma mark - View Setup
@@ -63,6 +67,18 @@
   return constraint.secondItem == self && constraint.secondAttribute == NSLayoutAttributeBottom;
 }
 
+#pragma mark - Custom Accessors
+
+- (void)setBottomConstraintToBottomLayoutGuide:(NSLayoutConstraint *)bottomConstraintToBottomLayoutGuide {
+  
+  if (_bottomConstraintToBottomLayoutGuide == bottomConstraintToBottomLayoutGuide) {
+    return;
+  }
+  
+  _bottomConstraintToBottomLayoutGuide = bottomConstraintToBottomLayoutGuide;
+  _bottomConstraintToBottomLayoutGuideConstant = bottomConstraintToBottomLayoutGuide.constant;
+}
+
 #pragma mark - Notifications
 
 #pragma mark - keyboardWillShow:
@@ -99,7 +115,9 @@
 - (void)keyboardWillHide:(NSNotification *)notification
 {
   [super keyboardWillHide:notification];
-  [self setBottomConstraintConstant:0 animationInfo:[notification userInfo] animated:![self shouldDrawPlaceholder]];
+  [self setBottomConstraintConstant:self.bottomConstraintToBottomLayoutGuideConstant
+                      animationInfo:[notification userInfo]
+                           animated:![self shouldDrawPlaceholder]];
 }
 
 #pragma mark - setBottomConstant: animationInfo: animated:

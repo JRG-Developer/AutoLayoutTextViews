@@ -35,12 +35,18 @@
 
 #import <OCMock/OCMock.h>
 
+@interface ALKeyboardAvoidingTextView()
+@property (nonatomic, assign) CGFloat bottomConstraintToBottomLayoutGuideConstant;
+@end
+
 @interface ALKeyboardAvoidingTextViewTests : XCTestCase
 @end
 
 @implementation ALKeyboardAvoidingTextViewTests
 {
   Test_ALKeyboardAvoidingTextView *sut;
+  
+  CGFloat constant;
   
   id partialMock;
   id mockBottomConstraint;
@@ -58,9 +64,7 @@
   [super setUp];
   
   sut = [[Test_ALKeyboardAvoidingTextView alloc] init];
-  
-  mockBottomConstraint = OCMClassMock([NSLayoutConstraint class]);
-  sut.bottomConstraintToBottomLayoutGuide = mockBottomConstraint;
+  [self givenMockBottomConstraintWithConstant:0];
 }
 
 - (void)tearDown
@@ -98,6 +102,16 @@
 }
 
 #pragma mark - Given - Mocks
+
+- (void)givenMockBottomConstraintWithConstant:(CGFloat)constant {
+
+  [mockBottomConstraint stopMocking];
+  
+  mockBottomConstraint = OCMClassMock([NSLayoutConstraint class]);
+  OCMStub([mockBottomConstraint constant]).andReturn(constant);
+  
+  sut.bottomConstraintToBottomLayoutGuide = mockBottomConstraint;
+}
 
 - (void)givenViewClass
 {
@@ -168,6 +182,19 @@
   
   // then
   expect(sut.bottomConstraintToBottomLayoutGuide).toNot.beNil();
+}
+
+#pragma mark - Custom Accessors - Tests
+
+- (void)test___setBottomConstraintToBottomLayoutGuide___setsbottomConstraintToBottomLayoutGuideConstant {
+  
+  // given
+  CGFloat expected = 42;
+
+  [self givenMockBottomConstraintWithConstant:expected];
+  
+  // then
+  expect(sut.bottomConstraintToBottomLayoutGuideConstant).to.equal(expected);
 }
 
 #pragma mark - Keyboard Will Show - Tests
@@ -277,13 +304,15 @@
 
 #pragma mark - Keyboard Will Hide Tests
 
-- (void)test___keyboardWillHide___setsBottomConstraintConstantToZero
+- (void)test___keyboardWillHide___setsBottomConstraintConstantToStoredValue
 {
   // given
-  OCMStub([mockBottomConstraint secondItem]).andReturn(sut);
-  [self givenMockNotification];
+  CGFloat expected = 42;
+  sut.bottomConstraintToBottomLayoutGuideConstant = expected;
   
-  CGFloat expected = 0;
+  OCMStub([mockBottomConstraint secondItem]).andReturn(sut);
+
+  [self givenMockNotification];
   
   // when
   [sut keyboardWillHide:mockNotification];
