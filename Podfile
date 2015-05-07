@@ -13,6 +13,6 @@ target "AutoLayoutTextViewsDemo" do
 end
 
 target "AutoLayoutTextViewsTests" do
-  pod 'Expecta', '~> 0.3'
+  pod 'Expecta', '~> 1.0'
   pod 'OCMock', '~> 3.1'
 end
