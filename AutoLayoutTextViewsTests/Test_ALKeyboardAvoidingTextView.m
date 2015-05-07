@@ -26,10 +26,20 @@
 
 @implementation Test_ALKeyboardAvoidingTextView
 
+- (void)updateConstraintsIfNeeded
+{
+  [super updateConstraintsIfNeeded];
+  self.called_updateConstraintsIfNeeded = YES;
+}
+
 - (void)layoutIfNeeded
 {
   [super layoutIfNeeded];
   self.called_layoutIfNeeded = YES;
+}
+
+- (CGRect)caretRectForPosition:(UITextPosition *)position {  
+  return self.test_caretRect;
 }
 
 @end

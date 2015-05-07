@@ -26,4 +26,6 @@
 
 @interface Test_ALKeyboardAvoidingTextView : ALKeyboardAvoidingTextView
 @property  (assign, nonatomic) BOOL called_layoutIfNeeded;
+@property (assign, nonatomic) BOOL called_updateConstraintsIfNeeded;
+@property (assign, nonatomic) CGRect test_caretRect;
 @end

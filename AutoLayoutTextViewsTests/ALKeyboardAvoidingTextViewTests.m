@@ -42,6 +42,7 @@
 {
   Test_ALKeyboardAvoidingTextView *sut;
   
+  id partialMock;
   id mockBottomConstraint;
   id mockNotification;
   id viewClass;
@@ -64,9 +65,10 @@
 
 - (void)tearDown
 {
-  [viewClass stopMocking];
-  [mockNotification stopMocking];
   [mockBottomConstraint stopMocking];
+  [mockNotification stopMocking];
+  [partialMock stopMocking];
+  [viewClass stopMocking];
   
   [super tearDown];
 }
@@ -95,7 +97,7 @@
   userInfo[UIKeyboardFrameEndUserInfoKey] = [NSValue valueWithCGRect:CGRectMake(0, 0, 320, 216)];
 }
 
-#pragma mark - Given
+#pragma mark - Given - Mocks
 
 - (void)givenViewClass
 {
@@ -120,6 +122,10 @@
   [[viewClass reject] setAnimationCurve:[info[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
   [[viewClass reject] setAnimationBeginsFromCurrentState:YES];
   [[viewClass reject] commitAnimations];
+}
+
+- (void)givenPartialMock {
+  partialMock = OCMPartialMock(sut);
 }
 
 #pragma mark - View - Tests
@@ -210,18 +216,20 @@
   expect(sut.called_layoutIfNeeded).to.beTruthy();
 }
 
-- (void)test___keyboardWillShow___callsLayoutIfNeeded_givenPlaceholderWithoutText
+- (void)test___keyboardWillShow___callsUpdateConstraintsIfNeeded_givenPlaceholderWithoutText
 {
   // given
   [self givenMockNotification];
   
   sut.placeholder = @"Placeholder";
+  sut.text = nil;
   
   // when
   [sut keyboardWillShow:mockNotification];
   
   // then
-  expect(sut.called_layoutIfNeeded).to.beTruthy();
+  expect(sut.called_updateConstraintsIfNeeded).to.beTruthy();
+  expect(sut.called_layoutIfNeeded).to.beFalsy();
 }
 
 - (void)test___keyboardWillShow___animatesChange_GivenText
@@ -298,7 +306,7 @@
   expect(sut.called_layoutIfNeeded).to.beTruthy();
 }
 
-- (void)test___keyboardWillHide___callsLayoutIfNeeded_givenPlaceholderWithoutText
+- (void)test___keyboardWillHide___callsUpdateConstraintsIfNeeded_givenPlaceholderWithoutText
 {
   // given
   [self givenMockNotification];
@@ -310,7 +318,8 @@
   [sut keyboardWillHide:mockNotification];
   
   // then
-  expect(sut.called_layoutIfNeeded).to.beTruthy();
+  expect(sut.called_updateConstraintsIfNeeded).to.beTruthy();
+  expect(sut.called_layoutIfNeeded).to.beFalsy();
 }
 
 - (void)test___keyboardWillHide___animatesChange_GivenText

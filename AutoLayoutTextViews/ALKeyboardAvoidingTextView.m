@@ -113,15 +113,25 @@
   self.bottomConstraintToBottomLayoutGuide.constant = constant;
   
   if (!animated) {
-    [self layoutIfNeeded];
+    [self updateConstraintsIfNeeded];
     return;
   }
+  
+  [self setNeedsLayout];
   
   [UIView beginAnimations:nil context:NULL];
   [UIView setAnimationDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
   [UIView setAnimationCurve:[info[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
   [UIView setAnimationBeginsFromCurrentState:YES];
+  
+  // Warning-- this method is needed to animate scrolling to selection, but this call isn't in the unit tests
+  // there's some issues around testing this that I haven't been able to get around... :/ -JRG
+  if (self.selectedTextRange) {
+    self.contentOffset = [self caretRectForPosition:self.selectedTextRange.start].origin;
+  }
+  
   [self layoutIfNeeded];
+  
   [UIView commitAnimations];
 }
 
