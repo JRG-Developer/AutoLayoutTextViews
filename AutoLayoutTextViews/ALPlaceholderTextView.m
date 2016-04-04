@@ -54,7 +54,7 @@
 - (void)commonInit
 {
   _placeholderColor = [UIColor lightGrayColor];
-  _placeholderInsets = UIEdgeInsetsMake(8.0f, 4.0f, 0.0f, 0.0f);
+  _placeholderInsets = UIEdgeInsetsMake(8.0f, 4.0f, 8.0f, 0.0f);
   self.font = self.font ?: [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
   
   [self startObservingNotifications];

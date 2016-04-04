@@ -101,7 +101,7 @@
 - (void)test_placeholderInsetsSetToCorrectDefaultValue
 {
   // given
-  UIEdgeInsets expected = UIEdgeInsetsMake(8.0f, 4.0f, 0.0f, 0.0f);
+  UIEdgeInsets expected = UIEdgeInsetsMake(8.0f, 4.0f, 8.0f, 0.0f);
   
   // when
   UIEdgeInsets actual = sut.placeholderInsets;
