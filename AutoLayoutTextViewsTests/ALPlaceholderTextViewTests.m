@@ -178,6 +178,18 @@
   expect(sut.called_setNeedsDisplay).to.beTruthy();
 }
 
+- (void)test__sizeThatFits__givenLongerPlaceholderTextThanContentText_returnsSizeWithHeightFittingPlaceholder
+{
+  // given
+  sut.placeholder = @"Long Placeholder Text Long Placeholder Text Long Placeholder Text Long Placeholder Text Long Placeholder Text Long Placeholder Text";
+  
+  // when
+  CGSize actual = [sut sizeThatFits:CGSizeMake(50.0f, 50.0f)];
+  
+  // then
+  expect(actual.height).to.beGreaterThan(50.0f);
+}
+
 - (void)test___drawRect___returnsNO_ifHasText
 {
   // given
