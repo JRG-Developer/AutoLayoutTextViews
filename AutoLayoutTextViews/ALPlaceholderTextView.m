@@ -54,7 +54,7 @@
 - (void)commonInit
 {
   _placeholderColor = [UIColor lightGrayColor];
-  _placeholderInsets = UIEdgeInsetsMake(8.0f, 4.0f, 0.0f, 0.0f);
+  _placeholderInsets = UIEdgeInsetsMake(8.0f, 4.0f, 8.0f, 0.0f);
   self.font = self.font ?: [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
   
   [self startObservingNotifications];
@@ -107,6 +107,7 @@
   [self setNeedsDisplay];
 }
 
+
 #pragma mark - Custom Accessors
 
 - (void)setPlaceholder:(NSString *)placeholder
@@ -138,6 +139,34 @@
   [self setNeedsDisplay];
 }
 
+#pragma mark - Size That Fits
+
+- (CGSize)sizeThatFits:(CGSize)size
+{
+  CGSize contentSize = [super sizeThatFits:size];
+  CGSize placeholderTextSize = [_placeholder boundingRectWithSize:CGSizeMake(size.width, CGFLOAT_MAX)
+                                                          options:NSStringDrawingUsesLineFragmentOrigin
+                                                       attributes:[self placeholderAttributes]
+                                                          context:nil].size;
+  
+  CGSize placeholderSize = CGSizeMake(placeholderTextSize.width, placeholderTextSize.height +
+                                      _placeholderInsets.top +
+                                      _placeholderInsets.bottom);
+  
+  return contentSize.height >= placeholderSize.height ? contentSize : placeholderSize;
+}
+
+- (NSDictionary *)placeholderAttributes
+{
+  NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+  paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+  paragraphStyle.alignment = self.textAlignment;
+  
+  return @{NSFontAttributeName: self.font,
+           NSParagraphStyleAttributeName: paragraphStyle,
+           NSForegroundColorAttributeName: self.placeholderColor};
+}
+
 #pragma mark - Draw Rect
 
 - (void)drawRect:(CGRect)rect
@@ -148,15 +177,7 @@
     return;
   }
   
-  NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
-  paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-  paragraphStyle.alignment = self.textAlignment;
-  
-  NSDictionary *attributes = @{NSFontAttributeName: self.font,
-                               NSParagraphStyleAttributeName: paragraphStyle,
-                               NSForegroundColorAttributeName: self.placeholderColor};
-  
-  [self.placeholder drawInRect:[self calculatePlaceholderRectInsetInRect:rect] withAttributes:attributes];
+  [self.placeholder drawInRect:[self calculatePlaceholderRectInsetInRect:rect] withAttributes:[self placeholderAttributes]];
 }
 
 - (BOOL)shouldDrawPlaceholder

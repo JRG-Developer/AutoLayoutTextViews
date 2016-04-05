@@ -147,11 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4460853E194286690093A6FA /* Build configuration list for PBXNativeTarget "AutoLayoutTextViewsDemo" */;
 			buildPhases = (
-				48AC5D1F2B7C490899E425E0 /* Check Pods Manifest.lock */,
+				48AC5D1F2B7C490899E425E0 /* 📦 Check Pods Manifest.lock */,
 				44608508194286690093A6FA /* Sources */,
 				44608509194286690093A6FA /* Frameworks */,
 				4460850A194286690093A6FA /* Resources */,
-				FB9D0AA459E34F9F8F778979 /* Copy Pods Resources */,
+				FB9D0AA459E34F9F8F778979 /* 📦 Copy Pods Resources */,
+				39008B6E526BA84E9FB17D67 /* 📦 Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -204,14 +205,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		48AC5D1F2B7C490899E425E0 /* Check Pods Manifest.lock */ = {
+		39008B6E526BA84E9FB17D67 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViewsDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48AC5D1F2B7C490899E425E0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,14 +235,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FB9D0AA459E34F9F8F778979 /* Copy Pods Resources */ = {
+		FB9D0AA459E34F9F8F778979 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
