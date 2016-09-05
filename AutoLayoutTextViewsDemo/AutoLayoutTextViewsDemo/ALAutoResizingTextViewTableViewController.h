@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import <AutoLayoutTextViews/ALAutoResizingTextView.h>
+#import "AutoLayoutTextViews.h"
 
 @interface ALAutoResizingTextViewTableViewController : UITableViewController <ALAutoResizingTextViewDelegate>
 

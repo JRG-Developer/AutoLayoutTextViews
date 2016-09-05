@@ -98,12 +98,16 @@
 
 - (void)updateHeightConstraint
 {
-  self.oldHeight = self.heightConstraint.constant;
-  self.newHeight = [self calculateNewHeight];
   
-  if (![self didHeightChange]) {
+  CGFloat oldHeight = self.heightConstraint.constant;
+  CGFloat newHeight = [self calculateNewHeight];
+  
+  if (oldHeight == newHeight) {
     return;
   }
+  
+  self.oldHeight = oldHeight;
+  self.newHeight = newHeight;
   
   if ([self shouldAnimateHeightChange]) {
     [self animateHeightChange];
@@ -125,11 +129,6 @@
 {
   CGSize size = [self sizeThatFits:self.frame.size];
   return size.height + self.contentInset.top;
-}
-
-- (BOOL)didHeightChange
-{
-  return self.newHeight != self.oldHeight;
 }
 
 - (BOOL)shouldAnimateHeightChange

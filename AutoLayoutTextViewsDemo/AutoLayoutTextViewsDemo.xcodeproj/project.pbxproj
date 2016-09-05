@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AC65AEF667A53D48F78FDDE /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CC977061B34842E205F1FA /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a */; };
 		42D015801A09C82B00D2950F /* ALTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D0157F1A09C82B00D2950F /* ALTextViewCell.m */; };
 		4460851A194286690093A6FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44608518194286690093A6FA /* InfoPlist.strings */; };
 		4460851C194286690093A6FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460851B194286690093A6FA /* main.m */; };
@@ -21,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		2BE76039C2C7EEA18CED60A5 /* Pods-AutoLayoutTextViewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViewsDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViewsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		2DFB6B9C62D372274CCEAB0B /* Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		37CC977061B34842E205F1FA /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D0157E1A09C82B00D2950F /* ALTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTextViewCell.h; sourceTree = "<group>"; };
 		42D0157F1A09C82B00D2950F /* ALTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTextViewCell.m; sourceTree = "<group>"; };
 		4460850C194286690093A6FA /* AutoLayoutTextViewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutTextViewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +40,7 @@
 		448D9DF41946743300453E69 /* ALTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTextViewController.h; sourceTree = "<group>"; };
 		448D9DF51946743300453E69 /* ALTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTextViewController.m; sourceTree = "<group>"; };
 		51292E7F96A1AFFE4C821792 /* Pods-AutoLayoutTextViewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViewsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViewsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		65D127BDD1EEDFD8C0FF43B7 /* Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		818333B692AE1B0E33029DB0 /* Pods-AutoLayoutTextViewsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViewsDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViewsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		92D8DF861A09AB16006F106A /* ALAutoResizingTextViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAutoResizingTextViewTableViewController.h; sourceTree = "<group>"; };
 		92D8DF871A09AB16006F106A /* ALAutoResizingTextViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAutoResizingTextViewTableViewController.m; sourceTree = "<group>"; };
@@ -50,6 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				815B5596A10C4D67A6634888 /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */,
+				0AC65AEF667A53D48F78FDDE /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +68,8 @@
 				51292E7F96A1AFFE4C821792 /* Pods-AutoLayoutTextViewsDemo.release.xcconfig */,
 				818333B692AE1B0E33029DB0 /* Pods-AutoLayoutTextViewsDemo.debug.xcconfig */,
 				2BE76039C2C7EEA18CED60A5 /* Pods-AutoLayoutTextViewsDemo.release.xcconfig */,
+				65D127BDD1EEDFD8C0FF43B7 /* Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.debug.xcconfig */,
+				2DFB6B9C62D372274CCEAB0B /* Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -89,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				CCFC0BAE800147B481EB2390 /* libPods-AutoLayoutTextViewsDemo.a */,
+				37CC977061B34842E205F1FA /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,12 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4460853E194286690093A6FA /* Build configuration list for PBXNativeTarget "AutoLayoutTextViewsDemo" */;
 			buildPhases = (
-				48AC5D1F2B7C490899E425E0 /* 📦 Check Pods Manifest.lock */,
+				48AC5D1F2B7C490899E425E0 /* [CP] Check Pods Manifest.lock */,
 				44608508194286690093A6FA /* Sources */,
 				44608509194286690093A6FA /* Frameworks */,
 				4460850A194286690093A6FA /* Resources */,
-				FB9D0AA459E34F9F8F778979 /* 📦 Copy Pods Resources */,
-				39008B6E526BA84E9FB17D67 /* 📦 Embed Pods Frameworks */,
+				FB9D0AA459E34F9F8F778979 /* [CP] Copy Pods Resources */,
+				39008B6E526BA84E9FB17D67 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,14 +213,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39008B6E526BA84E9FB17D67 /* 📦 Embed Pods Frameworks */ = {
+		39008B6E526BA84E9FB17D67 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,14 +228,14 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViewsDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		48AC5D1F2B7C490899E425E0 /* 📦 Check Pods Manifest.lock */ = {
+		48AC5D1F2B7C490899E425E0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,14 +243,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FB9D0AA459E34F9F8F778979 /* 📦 Copy Pods Resources */ = {
+		FB9D0AA459E34F9F8F778979 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

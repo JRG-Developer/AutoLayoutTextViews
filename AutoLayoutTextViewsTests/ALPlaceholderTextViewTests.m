@@ -81,8 +81,10 @@
 
 - (void)test___initWithCoder___calls___commonInit
 {
+  NSCoder *coder = nil;
+  
   // when
-  sut = [[Test_ALPlaceholderTextView alloc] initWithCoder:nil];
+  sut = [[Test_ALPlaceholderTextView alloc] initWithCoder:coder];
   
   // then
   expect(sut.called_commonInit).to.beTruthy();

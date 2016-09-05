@@ -1,14 +1,14 @@
 platform :ios, "7.0"
 
 workspace "AutoLayoutTextViews"
-xcodeproj "AutoLayoutTextViews"
+project "AutoLayoutTextViews"
 
 target "AutoLayoutTextViews" do
-
+  
 end
 
 target "AutoLayoutTextViewsDemo" do
-  xcodeproj "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo"  
+  project "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo"
   pod 'AutoLayoutTextViews', :path => '.'
 end
 
