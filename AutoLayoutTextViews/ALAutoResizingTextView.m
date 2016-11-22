@@ -153,9 +153,11 @@
 
 - (void (^)())animationBlock
 {
+  __weak ALAutoResizingTextView *weakSelf = self;
   return  ^{
-    if ([self.delegate respondsToSelector:@selector(textView:willChangeFromHeight:toHeight:)]) {
-      [self.delegate textView:self willChangeFromHeight:self.oldHeight toHeight:self.newHeight];
+    ALAutoResizingTextView *innerSelf = weakSelf;
+    if (innerSelf.delegate && [innerSelf.delegate respondsToSelector:@selector(textView:willChangeFromHeight:toHeight:)]) {
+      [innerSelf.delegate textView:innerSelf willChangeFromHeight:innerSelf.oldHeight toHeight:innerSelf.newHeight];
     }
     self.heightConstraint.constant = self.newHeight;
   };
@@ -163,10 +165,11 @@
 
 - (void(^)(BOOL))completionBlock
 {
+  __weak ALAutoResizingTextView *weakSelf = self;
   return ^(BOOL finished) {
-    
-    if ([self.delegate respondsToSelector:@selector(textView:didChangeFromHeight:toHeight:)]) {
-      [self.delegate textView:self didChangeFromHeight:self.oldHeight toHeight:self.newHeight];
+    ALAutoResizingTextView *innerSelf = weakSelf;
+    if (innerSelf.delegate && [innerSelf.delegate respondsToSelector:@selector(textView:didChangeFromHeight:toHeight:)]) {
+      [innerSelf.delegate textView:innerSelf didChangeFromHeight:innerSelf.oldHeight toHeight:innerSelf.newHeight];
     }
   };
 }
