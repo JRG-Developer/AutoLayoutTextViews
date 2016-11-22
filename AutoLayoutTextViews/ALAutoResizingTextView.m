@@ -155,9 +155,9 @@
 {
   __weak ALAutoResizingTextView *weakSelf = self;
   return  ^{
-    ALAutoResizingTextView *innerSelf = weakSelf;
-    if (innerSelf.delegate && [innerSelf.delegate respondsToSelector:@selector(textView:willChangeFromHeight:toHeight:)]) {
-      [innerSelf.delegate textView:innerSelf willChangeFromHeight:innerSelf.oldHeight toHeight:innerSelf.newHeight];
+    __strong ALAutoResizingTextView *strongSelf = weakSelf;
+    if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(textView:willChangeFromHeight:toHeight:)]) {
+      [strongSelf.delegate textView:strongSelf willChangeFromHeight:strongSelf.oldHeight toHeight:strongSelf.newHeight];
     }
     self.heightConstraint.constant = self.newHeight;
   };
@@ -167,9 +167,9 @@
 {
   __weak ALAutoResizingTextView *weakSelf = self;
   return ^(BOOL finished) {
-    ALAutoResizingTextView *innerSelf = weakSelf;
-    if (innerSelf.delegate && [innerSelf.delegate respondsToSelector:@selector(textView:didChangeFromHeight:toHeight:)]) {
-      [innerSelf.delegate textView:innerSelf didChangeFromHeight:innerSelf.oldHeight toHeight:innerSelf.newHeight];
+    __strong ALAutoResizingTextView *strongSelf = weakSelf;
+    if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(textView:didChangeFromHeight:toHeight:)]) {
+      [strongSelf.delegate textView:strongSelf didChangeFromHeight:strongSelf.oldHeight toHeight:strongSelf.newHeight];
     }
   };
 }
