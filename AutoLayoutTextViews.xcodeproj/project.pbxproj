@@ -12,7 +12,6 @@
 		44608500194283600093A6FA /* ALPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 446084FF194283600093A6FA /* ALPlaceholderTextView.m */; };
 		4460854D19429A520093A6FA /* ALPlaceholderTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460854C19429A520093A6FA /* ALPlaceholderTextViewTests.m */; };
 		4460855219429FEA0093A6FA /* Test_ALPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460855119429FEA0093A6FA /* Test_ALPlaceholderTextView.m */; };
-		447BD45C19413B840062487D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447BD45B19413B840062487D /* XCTest.framework */; };
 		447BD46819413B840062487D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447BD46619413B840062487D /* InfoPlist.strings */; };
 		449026B4197325DA00A737C3 /* ALKeyboardAvoidingTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D9DFA1946801D00453E69 /* ALKeyboardAvoidingTextViewTests.m */; };
 		449026B519732E9700A737C3 /* ALAutoResizingTextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 448FA0C4194639EF00F79989 /* ALAutoResizingTextViewTests.m */; };
@@ -20,7 +19,6 @@
 		44FC5CEF19463C43004812F4 /* Test_ALAutoResizingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5CEE19463C43004812F4 /* Test_ALAutoResizingTextView.m */; };
 		44FC5CF21946581C004812F4 /* ALKeyboardAvoidingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5CF11946581C004812F4 /* ALKeyboardAvoidingTextView.m */; };
 		6ED50CC8621BA8FF1C19C608 /* libPods-AutoLayoutTextViews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69A689147E6C81B73117F10 /* libPods-AutoLayoutTextViews.a */; };
-		A0FAB2ADE29F0046A3064CF0 /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64858685EF628981D5ECE76A /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsTests.a */; };
 		D92251557C643F2B201080E7 /* libPods-AutoLayoutTextViewsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D76956A698BDE9F9880C3A7D /* libPods-AutoLayoutTextViewsTests.a */; };
 /* End PBXBuildFile section */
 
@@ -96,9 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A095891970F153000ED5B6 /* libAutoLayoutTextViews.a in Frameworks */,
-				447BD45C19413B840062487D /* XCTest.framework in Frameworks */,
 				D92251557C643F2B201080E7 /* libPods-AutoLayoutTextViewsTests.a in Frameworks */,
-				A0FAB2ADE29F0046A3064CF0 /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +270,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AL;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 447BD44519413B840062487D /* Build configuration list for PBXProject "AutoLayoutTextViews" */;
@@ -319,7 +315,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		0A8DE686AB7C5D1C10615584 /* [CP] Check Pods Manifest.lock */ = {
@@ -334,7 +330,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		48F7E2847664EC8FFB336E64 /* [CP] Copy Pods Resources */ = {
@@ -443,13 +439,18 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -462,7 +463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -481,19 +482,24 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -529,11 +535,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B90A51AFD8D34D01331B1B4C /* Pods-AutoLayoutTextViewsTests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoLayoutTextViews/AutoLayoutTextViews-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -551,11 +552,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1D2A9FC6FA1EE2FCB9D6CA4 /* Pods-AutoLayoutTextViewsTests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoLayoutTextViews/AutoLayoutTextViews-Prefix.pch";
 				INFOPLIST_FILE = "AutoLayoutTextViewsTests/AutoLayoutTextViewsTests-Info.plist";

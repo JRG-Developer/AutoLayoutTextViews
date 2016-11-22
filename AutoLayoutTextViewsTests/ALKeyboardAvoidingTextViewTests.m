@@ -103,12 +103,12 @@
 
 #pragma mark - Given - Mocks
 
-- (void)givenMockBottomConstraintWithConstant:(CGFloat)constant {
+- (void)givenMockBottomConstraintWithConstant:(CGFloat)expected {
 
   [mockBottomConstraint stopMocking];
   
   mockBottomConstraint = OCMClassMock([NSLayoutConstraint class]);
-  OCMStub([mockBottomConstraint constant]).andReturn(constant);
+  OCMStub([(NSLayoutConstraint *)mockBottomConstraint constant]).andReturn(expected);
   
   sut.bottomConstraintToBottomLayoutGuide = mockBottomConstraint;
 }

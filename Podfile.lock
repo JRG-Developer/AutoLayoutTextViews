@@ -1,5 +1,5 @@
 PODS:
-  - AutoLayoutTextViews (1.2.4)
+  - AutoLayoutTextViews (1.2.5)
   - Expecta (1.0.5)
   - OCMock (3.3.1)
 
@@ -13,10 +13,10 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  AutoLayoutTextViews: 736cf883739ff018dbcc5f99fb411936ec514be3
+  AutoLayoutTextViews: 4f8f7627ba239c0cc39858239ffbb2c2456ef36b
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
 
 PODFILE CHECKSUM: 7238d2653925c41a5e5a1f7fc9163f33591c8916
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AC65AEF667A53D48F78FDDE /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CC977061B34842E205F1FA /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a */; };
+		394B204347E2A25CF9E4FD81 /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFC0BAE800147B481EB2390 /* libPods-AutoLayoutTextViewsDemo.a */; };
 		42D015801A09C82B00D2950F /* ALTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D0157F1A09C82B00D2950F /* ALTextViewCell.m */; };
+		42F31B1F1DE4A2A6002099AE /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F31B1E1DE4A2A6002099AE /* libPods-AutoLayoutTextViewsDemo.a */; };
 		4460851A194286690093A6FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44608518194286690093A6FA /* InfoPlist.strings */; };
 		4460851C194286690093A6FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460851B194286690093A6FA /* main.m */; };
 		44608520194286690093A6FA /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460851F194286690093A6FA /* ALAppDelegate.m */; };
@@ -16,7 +17,6 @@
 		44608526194286690093A6FA /* ALTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44608525194286690093A6FA /* ALTableViewController.m */; };
 		44608528194286690093A6FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44608527194286690093A6FA /* Images.xcassets */; };
 		448D9DF61946743300453E69 /* ALTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D9DF51946743300453E69 /* ALTextViewController.m */; };
-		815B5596A10C4D67A6634888 /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFC0BAE800147B481EB2390 /* libPods-AutoLayoutTextViewsDemo.a */; };
 		92D8DF881A09AB16006F106A /* ALAutoResizingTextViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D8DF871A09AB16006F106A /* ALAutoResizingTextViewTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +26,7 @@
 		37CC977061B34842E205F1FA /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D0157E1A09C82B00D2950F /* ALTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTextViewCell.h; sourceTree = "<group>"; };
 		42D0157F1A09C82B00D2950F /* ALTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTextViewCell.m; sourceTree = "<group>"; };
+		42F31B1E1DE4A2A6002099AE /* libPods-AutoLayoutTextViewsDemo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AutoLayoutTextViewsDemo.a"; path = "/Users/Joshua/Documents/Libraries/AutoLayoutTextViews/Pods/../build/Debug-iphoneos/libPods-AutoLayoutTextViewsDemo.a"; sourceTree = "<absolute>"; };
 		4460850C194286690093A6FA /* AutoLayoutTextViewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutTextViewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44608517194286690093A6FA /* AutoLayoutTextViewsDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AutoLayoutTextViewsDemo-Info.plist"; sourceTree = "<group>"; };
 		44608519194286690093A6FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -53,8 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				815B5596A10C4D67A6634888 /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */,
-				0AC65AEF667A53D48F78FDDE /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a in Frameworks */,
+				42F31B1F1DE4A2A6002099AE /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */,
+				394B204347E2A25CF9E4FD81 /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +96,7 @@
 		4460850E194286690093A6FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42F31B1E1DE4A2A6002099AE /* libPods-AutoLayoutTextViewsDemo.a */,
 				CCFC0BAE800147B481EB2390 /* libPods-AutoLayoutTextViewsDemo.a */,
 				37CC977061B34842E205F1FA /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a */,
 			);
@@ -178,7 +180,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AO;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "App-Order, LLC";
 			};
 			buildConfigurationList = 44608507194286690093A6FA /* Build configuration list for PBXProject "AutoLayoutTextViewsDemo" */;
@@ -240,7 +242,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FB9D0AA459E34F9F8F778979 /* [CP] Copy Pods Resources */ = {
@@ -309,13 +311,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -328,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -347,20 +355,25 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -376,6 +389,7 @@
 				GCC_PREFIX_HEADER = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch";
 				INFOPLIST_FILE = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jrgdeveloper.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = AutoLayoutTextViewsDemo;
 				WRAPPER_EXTENSION = app;
 			};
@@ -391,6 +405,7 @@
 				GCC_PREFIX_HEADER = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch";
 				INFOPLIST_FILE = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jrgdeveloper.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = AutoLayoutTextViewsDemo;
 				WRAPPER_EXTENSION = app;
 			};
