@@ -18,8 +18,8 @@
 		44A095891970F153000ED5B6 /* libAutoLayoutTextViews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 447BD44A19413B840062487D /* libAutoLayoutTextViews.a */; };
 		44FC5CEF19463C43004812F4 /* Test_ALAutoResizingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5CEE19463C43004812F4 /* Test_ALAutoResizingTextView.m */; };
 		44FC5CF21946581C004812F4 /* ALKeyboardAvoidingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FC5CF11946581C004812F4 /* ALKeyboardAvoidingTextView.m */; };
-		6ED50CC8621BA8FF1C19C608 /* libPods-AutoLayoutTextViews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69A689147E6C81B73117F10 /* libPods-AutoLayoutTextViews.a */; };
-		D92251557C643F2B201080E7 /* libPods-AutoLayoutTextViewsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D76956A698BDE9F9880C3A7D /* libPods-AutoLayoutTextViewsTests.a */; };
+		A60DACFB16749A897814CF34 /* Pods_AutoLayoutTextViewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC01258D205DAEED35D82B6 /* Pods_AutoLayoutTextViewsTests.framework */; };
+		C2E642A4F1441E417D339249 /* Pods_AutoLayoutTextViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5566B83FB9EFB1D2501F725 /* Pods_AutoLayoutTextViews.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,11 +71,11 @@
 		44FC5CF01946581C004812F4 /* ALKeyboardAvoidingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALKeyboardAvoidingTextView.h; sourceTree = "<group>"; };
 		44FC5CF11946581C004812F4 /* ALKeyboardAvoidingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALKeyboardAvoidingTextView.m; sourceTree = "<group>"; };
 		64858685EF628981D5ECE76A /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoLayoutTextViews-AutoLayoutTextViewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EC01258D205DAEED35D82B6 /* Pods_AutoLayoutTextViewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoLayoutTextViewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5D89973620E899D9995AA5 /* Pods-AutoLayoutTextViews-AutoLayoutTextViewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViews-AutoLayoutTextViewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoLayoutTextViews-AutoLayoutTextViewsTests/Pods-AutoLayoutTextViews-AutoLayoutTextViewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B90A51AFD8D34D01331B1B4C /* Pods-AutoLayoutTextViewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoLayoutTextViewsTests/Pods-AutoLayoutTextViewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1D2A9FC6FA1EE2FCB9D6CA4 /* Pods-AutoLayoutTextViewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViewsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoLayoutTextViewsTests/Pods-AutoLayoutTextViewsTests.release.xcconfig"; sourceTree = "<group>"; };
-		D76956A698BDE9F9880C3A7D /* libPods-AutoLayoutTextViewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoLayoutTextViewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E69A689147E6C81B73117F10 /* libPods-AutoLayoutTextViews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoLayoutTextViews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5566B83FB9EFB1D2501F725 /* Pods_AutoLayoutTextViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoLayoutTextViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F709BA331C6B0ADAE8E98165 /* Pods-AutoLayoutTextViews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoLayoutTextViews/Pods-AutoLayoutTextViews.debug.xcconfig"; sourceTree = "<group>"; };
 		FA9A3324D32230CC88F7A991 /* Pods-AutoLayoutTextViews-AutoLayoutTextViewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViews-AutoLayoutTextViewsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoLayoutTextViews-AutoLayoutTextViewsTests/Pods-AutoLayoutTextViews-AutoLayoutTextViewsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ED50CC8621BA8FF1C19C608 /* libPods-AutoLayoutTextViews.a in Frameworks */,
+				C2E642A4F1441E417D339249 /* Pods_AutoLayoutTextViews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A095891970F153000ED5B6 /* libAutoLayoutTextViews.a in Frameworks */,
-				D92251557C643F2B201080E7 /* libPods-AutoLayoutTextViewsTests.a in Frameworks */,
+				A60DACFB16749A897814CF34 /* Pods_AutoLayoutTextViewsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,9 +163,9 @@
 				447BD44D19413B840062487D /* Foundation.framework */,
 				447BD45B19413B840062487D /* XCTest.framework */,
 				447BD45E19413B840062487D /* UIKit.framework */,
-				E69A689147E6C81B73117F10 /* libPods-AutoLayoutTextViews.a */,
-				D76956A698BDE9F9880C3A7D /* libPods-AutoLayoutTextViewsTests.a */,
 				64858685EF628981D5ECE76A /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsTests.a */,
+				D5566B83FB9EFB1D2501F725 /* Pods_AutoLayoutTextViews.framework */,
+				8EC01258D205DAEED35D82B6 /* Pods_AutoLayoutTextViewsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

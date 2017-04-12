@@ -72,24 +72,25 @@
 - (void)startObservingNotifications
 {
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                selector:@selector(textDidChange:)
-                                    name:UITextViewTextDidChangeNotification
-                                  object:self];
+   
+                                           selector:@selector(textDidChange:)
+                                               name:UITextViewTextDidChangeNotification
+                                             object:self];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                selector:@selector(textDidChange:)
-                                    name:UIApplicationDidChangeStatusBarOrientationNotification
-                                  object:nil];
+                                           selector:@selector(textDidChange:)
+                                               name:UIApplicationDidChangeStatusBarOrientationNotification
+                                             object:nil];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                selector:@selector(keyboardWillShow:)
-                                    name:UIKeyboardWillShowNotification
-                                  object:nil];
+                                           selector:@selector(keyboardWillShow:)
+                                               name:UIKeyboardWillShowNotification
+                                             object:nil];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                selector:@selector(keyboardWillHide:)
-                                    name:UIKeyboardWillHideNotification
-                                  object:nil];
+                                           selector:@selector(keyboardWillHide:)
+                                               name:UIKeyboardWillHideNotification
+                                             object:nil];
 }
 
 - (void)textDidChange:(NSNotification *)notification

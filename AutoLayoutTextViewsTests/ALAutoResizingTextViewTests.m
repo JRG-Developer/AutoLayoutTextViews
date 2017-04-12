@@ -161,26 +161,6 @@
   expect(sut.heightConstraint).toNot.beNil();
 }
 
-#pragma mark - layoutSubviews - Tests
-
-- (void)test___layoutSubviews___calls_setNeedsUpdateConstraints
-{
-  // when
-  [sut layoutSubviews];
-  
-  // then
-  expect(sut.called_setNeedsUpdateConstraints).to.beTruthy();
-}
-
-- (void)test___layoutSubviews___calls_updateConstraintsIfNeeded
-{
-  // when
-  [sut layoutSubviews];
-  
-  // then
-  expect(sut.called_updateConstraintsIfNeeded).to.beTruthy();
-}
-
 #pragma mark - updateConstraints - Tests
 
 - (void)test___updateConstraints___animatesHeightChange_ifAutoresizingAnimationDurationGreaterThanZero

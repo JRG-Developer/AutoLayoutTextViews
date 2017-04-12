@@ -44,7 +44,6 @@
 
 - (void)updateConstraintsIfNeeded
 {
-  [super updateConstraintsIfNeeded];
   self.called_updateConstraintsIfNeeded = YES;
 }
 

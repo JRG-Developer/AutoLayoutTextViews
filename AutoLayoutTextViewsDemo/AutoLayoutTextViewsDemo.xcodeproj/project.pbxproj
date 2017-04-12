@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		394B204347E2A25CF9E4FD81 /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFC0BAE800147B481EB2390 /* libPods-AutoLayoutTextViewsDemo.a */; };
+		427B15731E9D967A000DFEAD /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427B15721E9D967A000DFEAD /* Launch.storyboard */; };
 		42D015801A09C82B00D2950F /* ALTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D0157F1A09C82B00D2950F /* ALTextViewCell.m */; };
 		42F31B1F1DE4A2A6002099AE /* libPods-AutoLayoutTextViewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F31B1E1DE4A2A6002099AE /* libPods-AutoLayoutTextViewsDemo.a */; };
 		4460851A194286690093A6FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44608518194286690093A6FA /* InfoPlist.strings */; };
@@ -24,6 +25,7 @@
 		2BE76039C2C7EEA18CED60A5 /* Pods-AutoLayoutTextViewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViewsDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViewsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		2DFB6B9C62D372274CCEAB0B /* Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo/Pods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		37CC977061B34842E205F1FA /* libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoLayoutTextViews-AutoLayoutTextViewsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		427B15721E9D967A000DFEAD /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		42D0157E1A09C82B00D2950F /* ALTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTextViewCell.h; sourceTree = "<group>"; };
 		42D0157F1A09C82B00D2950F /* ALTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTextViewCell.m; sourceTree = "<group>"; };
 		42F31B1E1DE4A2A6002099AE /* libPods-AutoLayoutTextViewsDemo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AutoLayoutTextViewsDemo.a"; path = "/Users/Joshua/Documents/Libraries/AutoLayoutTextViews/Pods/../build/Debug-iphoneos/libPods-AutoLayoutTextViewsDemo.a"; sourceTree = "<absolute>"; };
@@ -146,6 +148,7 @@
 				42D0157E1A09C82B00D2950F /* ALTextViewCell.h */,
 				42D0157F1A09C82B00D2950F /* ALTextViewCell.m */,
 				44608521194286690093A6FA /* Main.storyboard */,
+				427B15721E9D967A000DFEAD /* Launch.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				44608528194286690093A6FA /* Images.xcassets in Resources */,
 				4460851A194286690093A6FA /* InfoPlist.strings in Resources */,
 				44608523194286690093A6FA /* Main.storyboard in Resources */,
+				427B15731E9D967A000DFEAD /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +246,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FB9D0AA459E34F9F8F778979 /* [CP] Copy Pods Resources */ = {
@@ -384,7 +388,6 @@
 			baseConfigurationReference = 818333B692AE1B0E33029DB0 /* Pods-AutoLayoutTextViewsDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch";
 				INFOPLIST_FILE = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist";
@@ -400,7 +403,6 @@
 			baseConfigurationReference = 2BE76039C2C7EEA18CED60A5 /* Pods-AutoLayoutTextViewsDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Prefix.pch";
 				INFOPLIST_FILE = "AutoLayoutTextViewsDemo/AutoLayoutTextViewsDemo-Info.plist";
