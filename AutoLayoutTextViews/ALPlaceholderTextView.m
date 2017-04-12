@@ -95,6 +95,7 @@
 
 - (void)textDidChange:(NSNotification *)notification
 {
+  [self invalidateIntrinsicContentSize];
   [self setNeedsDisplay];
 }
 
@@ -145,16 +146,29 @@
 - (CGSize)sizeThatFits:(CGSize)size
 {
   CGSize contentSize = [super sizeThatFits:size];
-  CGSize placeholderTextSize = [_placeholder boundingRectWithSize:CGSizeMake(size.width, CGFLOAT_MAX)
+  
+  CGRect rect = [self calculatePlaceholderRectInsetInRect:CGRectMake(0, 0, size.width, size.height)];
+  
+  CGSize placeholderTextSize = [_placeholder boundingRectWithSize:CGSizeMake(rect.size.width, CGFLOAT_MAX)
                                                           options:NSStringDrawingUsesLineFragmentOrigin
                                                        attributes:[self placeholderAttributes]
                                                           context:nil].size;
   
-  CGSize placeholderSize = CGSizeMake(placeholderTextSize.width, placeholderTextSize.height +
+  CGSize placeholderSize = CGSizeMake(ceilf(placeholderTextSize.width),
+                                      ceilf(placeholderTextSize.height +
                                       _placeholderInsets.top +
-                                      _placeholderInsets.bottom);
-  
+                                      _placeholderInsets.bottom));
+    
   return contentSize.height >= placeholderSize.height ? contentSize : placeholderSize;
+}
+
+- (CGSize)intrinsicContentSize {
+  
+  if (self.text.length > 0) {
+    return [super intrinsicContentSize];
+  }
+  
+  return [self sizeThatFits:self.frame.size];
 }
 
 - (NSDictionary *)placeholderAttributes

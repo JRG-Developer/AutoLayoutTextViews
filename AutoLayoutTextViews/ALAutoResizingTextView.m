@@ -146,11 +146,18 @@
 
 - (void)animateHeightChange
 {
-  [UIView animateWithDuration:self.autoresizingAnimationDuration
-                        delay:0.0f
-                      options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
-                   animations:[self animationBlock]
-                   completion:[self completionBlock]];
+  [self animationBlock]();
+  
+  [UIView
+   animateWithDuration:self.autoresizingAnimationDuration
+   delay:0.0
+   options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
+   animations:^{
+     [self layoutIfNeeded];
+     
+   } completion: ^(BOOL completion) {
+     [self completionBlock](completion);
+   }];
 }
 
 - (void)setNewHeightWithoutAnimation
@@ -167,8 +174,7 @@
     if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(textView:willChangeFromHeight:toHeight:)]) {
       [strongSelf.delegate textView:strongSelf willChangeFromHeight:strongSelf.oldHeight toHeight:strongSelf.newHeight];
     }
-    self.heightConstraint.constant = self.newHeight;
-    [self layoutIfNeeded];
+    strongSelf.heightConstraint.constant = self.newHeight;
   };
 }
 

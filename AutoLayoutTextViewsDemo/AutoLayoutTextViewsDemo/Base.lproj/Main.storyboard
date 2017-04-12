@@ -224,7 +224,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Placeholder Text"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="This is a long placeholder text to see how the cells display it -- correct or not?"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="minimumHeight">
                                                     <real key="value" value="40"/>
                                                 </userDefinedRuntimeAttribute>
