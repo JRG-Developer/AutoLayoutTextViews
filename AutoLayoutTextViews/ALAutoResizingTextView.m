@@ -135,8 +135,7 @@
 
 - (CGFloat)heightThatFitsContents
 {
-  CGSize size = [self sizeThatFits:self.frame.size];
-  NSLog(@"HEIGHT = %f", size.height);
+  CGSize size = [self sizeThatFits:self.frame.size];  
   return size.height;
 }
 
