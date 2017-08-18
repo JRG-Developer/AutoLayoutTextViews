@@ -32,15 +32,8 @@
 - (void)commonInit
 {
   [super commonInit];
-  
   _minimumHeight = 0.0f;
   _maximumHeight = CGFLOAT_MAX;
-  _autoresizingAnimationDuration = 0.2f;
-}
-
-- (void)textDidChange:(NSNotification *)notification {
-  [super textDidChange:notification];
-  [self setNeedsUpdateConstraints];
 }
 
 #pragma mark - View Setup
@@ -52,7 +45,6 @@
   if (!self.heightConstraint) {
     [self findHeightConstraint];
   }
-  [self setScrollEnabled:NO];
 }
 
 - (void)findHeightConstraint
@@ -75,18 +67,38 @@
 
 #pragma mark - Custom Accessors
 
+- (void)setBounds:(CGRect)newBounds
+{
+  [super setBounds:newBounds];
+  [self updateHeightConstraint];
+}
+
+- (void)setFrame:(CGRect)frame
+{
+  [super setFrame:frame];
+  [self updateHeightConstraint];
+}
+
 - (void)setMaximumHeight:(CGFloat)maximumHeight
 {
   _maximumHeight = maximumHeight > 0 ? maximumHeight : CGFLOAT_MAX;
+  [self updateHeightConstraint];
 }
 
--(void)setMinimumHeight:(CGFloat)minimumHeight
+- (void)setMinimumHeight:(CGFloat)minimumHeight
 {
-  if (minimumHeight <= 0) { return; }
-  _minimumHeight = minimumHeight;
+  _minimumHeight = fmaxf(0, minimumHeight);
+  [self updateHeightConstraint];
 }
 
 #pragma mark - View
+
+- (void)layoutSubviews
+{
+  [self invalidateIntrinsicContentSize];
+  [self setNeedsDisplay];
+  [super layoutSubviews];
+}
 
 - (void)updateConstraints
 {
@@ -97,32 +109,27 @@
 - (void)updateHeightConstraint
 {
   CGFloat oldHeight = self.heightConstraint.constant;
-  CGFloat newHeight = self.text.length > 0 ? [self calculateNewHeight] : self.minimumHeight;
+  CGFloat newHeight = [self calculateNewHeight];
   
-  if (oldHeight == newHeight) {
-    return;
-  }
+  if (oldHeight == newHeight) { return; }
   
   self.oldHeight = oldHeight;
   self.newHeight = newHeight;
   
   if (self.newHeight >= self.maximumHeight) {
     [self setScrollEnabled:YES];
+    
   } else {
     [self setScrollEnabled:NO];
   }
   
-  if ([self shouldAnimateHeightChange]) {
-    [self animateHeightChange];
-    
-  } else {
-    [self setNewHeightWithoutAnimation];
-  }
+  [self performHeightWillUpdate];
+  [self performHeightDidUpdate];
 }
 
 - (CGFloat)calculateNewHeight
 {
-  CGFloat height = [self heightThatFitsContents];
+  CGFloat height = [self sizeThatFits:self.frame.size].height;
   
   if (height > self.maximumHeight) {
     height = self.maximumHeight;
@@ -133,60 +140,19 @@
   return height;
 }
 
-- (CGFloat)heightThatFitsContents
+- (void)performHeightWillUpdate
 {
-  CGSize size = [self sizeThatFits:self.frame.size];  
-  return size.height;
+  if (self.delegate && [self.delegate respondsToSelector:@selector(textView:willChangeFromHeight:toHeight:)]) {
+    [self.delegate textView:self willChangeFromHeight:self.oldHeight toHeight:self.newHeight];
+  }
+  self.heightConstraint.constant = self.newHeight;
 }
 
-- (BOOL)shouldAnimateHeightChange
+- (void)performHeightDidUpdate
 {
-  return self.autoresizingAnimationDuration > 0 && ![self shouldDrawPlaceholder];
-}
-
-- (void)animateHeightChange
-{
-  [self animationBlock]();
-  
-  [UIView
-   animateWithDuration:self.autoresizingAnimationDuration
-   delay:0.0
-   options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
-   animations:^{
-     [self layoutIfNeeded];
-     
-   } completion: ^(BOOL completion) {
-     [self completionBlock](completion);
-   }];
-}
-
-- (void)setNewHeightWithoutAnimation
-{
-  [self animationBlock]();
-  [self completionBlock](YES);
-}
-
-- (void (^)())animationBlock
-{
-  __weak ALAutoResizingTextView *weakSelf = self;
-  return  ^{
-    __strong ALAutoResizingTextView *strongSelf = weakSelf;
-    if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(textView:willChangeFromHeight:toHeight:)]) {
-      [strongSelf.delegate textView:strongSelf willChangeFromHeight:strongSelf.oldHeight toHeight:strongSelf.newHeight];
-    }
-    strongSelf.heightConstraint.constant = self.newHeight;
-  };
-}
-
-- (void(^)(BOOL))completionBlock
-{
-  __weak ALAutoResizingTextView *weakSelf = self;
-  return ^(BOOL finished) {
-    __strong ALAutoResizingTextView *strongSelf = weakSelf;
-    if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(textView:didChangeFromHeight:toHeight:)]) {
-      [strongSelf.delegate textView:strongSelf didChangeFromHeight:strongSelf.oldHeight toHeight:strongSelf.newHeight];
-    }
-  };
+  if (self.delegate && [self.delegate respondsToSelector:@selector(textView:didChangeFromHeight:toHeight:)]) {
+    [self.delegate textView:self didChangeFromHeight:self.oldHeight toHeight:self.newHeight];
+  }
 }
 
 @end

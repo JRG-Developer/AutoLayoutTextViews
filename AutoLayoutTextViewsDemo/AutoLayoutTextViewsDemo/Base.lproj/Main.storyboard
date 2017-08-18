@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="MeB-Ss-lPV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="MeB-Ss-lPV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -202,9 +201,9 @@
         <!--Auto Resizing Text View (Table View)-->
         <scene sceneID="IDW-BA-ZO4">
             <objects>
-                <tableViewController id="EBp-AD-GQU" userLabel="Auto Resizing Text View (Table View)" customClass="ALAutoResizingTextViewTableViewController" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="EBp-AD-GQU" userLabel="Auto Resizing Text View (Table View)" customClass="ALAutoResizingTextViewTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" id="mGU-d6-8Y0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -216,30 +215,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29v-PX-PTQ" customClass="ALAutoResizingTextView">
-                                            <rect key="frame" x="8" y="8" width="359" height="40.5"/>
+                                            <rect key="frame" x="20" y="8" width="335" height="40.5"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="999" constant="40" identifier="HEIGHT" id="zSo-FI-bkB"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="This is a long placeholder text to see how the cells display it -- correct or not?"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="minimumHeight">
-                                                    <real key="value" value="40"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="maximumHeight">
-                                                    <real key="value" value="120"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <outlet property="delegate" destination="EBp-AD-GQU" id="2Yf-aE-HJ2"/>
                                             </connections>
                                         </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="29v-PX-PTQ" secondAttribute="trailing" identifier="TRAILING" id="2Go-qm-Hv6"/>
-                                        <constraint firstItem="29v-PX-PTQ" firstAttribute="leading" secondItem="fTt-Rj-WlB" secondAttribute="leadingMargin" identifier="LEADING" id="QT4-2i-8NC"/>
+                                        <constraint firstAttribute="trailing" secondItem="29v-PX-PTQ" secondAttribute="trailing" constant="20" identifier="TRAILING" id="2Go-qm-Hv6"/>
+                                        <constraint firstItem="29v-PX-PTQ" firstAttribute="leading" secondItem="fTt-Rj-WlB" secondAttribute="leading" constant="20" identifier="LEADING" id="QT4-2i-8NC"/>
                                         <constraint firstItem="29v-PX-PTQ" firstAttribute="top" secondItem="fTt-Rj-WlB" secondAttribute="topMargin" identifier="TOP" id="dxx-21-qAO"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="29v-PX-PTQ" secondAttribute="bottom" identifier="BOTTOM" id="jo8-wL-5WX"/>
                                     </constraints>
@@ -256,6 +246,7 @@
                             <outlet property="delegate" destination="EBp-AD-GQU" id="00Z-CA-3eT"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Auto Resizing Text (Table View)" id="g2I-mC-GAf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pas-RO-oC6" userLabel="First Responder" sceneMemberID="firstResponder"/>

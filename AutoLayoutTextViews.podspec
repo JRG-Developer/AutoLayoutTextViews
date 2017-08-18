@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.platform     = :ios
-  s.ios.deployment_target = "7.0"
+  s.ios.deployment_target = "9.0"
   s.name         = "AutoLayoutTextViews"
   s.version      = "1.2.8"
   s.summary      = "AutoLayoutTextViews subclasses UITextView and adds placeholder text, auto resizing, and keyboard avoiding functionality."

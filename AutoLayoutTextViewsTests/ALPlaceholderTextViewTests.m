@@ -147,7 +147,8 @@
 - (void)test___textDidChange__calls___setNeedsDisplay
 {
   // when
-  [sut textDidChange:nil];
+  NSNotification *notification = nil;
+  [sut textDidChange:notification];
   
   // then
   expect(sut.called_setNeedsDisplay).to.beTruthy();
@@ -156,7 +157,8 @@
 - (void)test___keyboardWillShow___calls___setNeedsDisplay
 {
   // when
-  [sut keyboardWillShow:nil];
+  NSNotification *notification = nil;
+  [sut keyboardWillShow:notification];
   
   // then
   expect(sut.called_setNeedsDisplay).to.beTruthy();
@@ -165,7 +167,8 @@
 - (void)test___keyboardWillHide___calls___setNeedsDisplay
 {
   // when
-  [sut keyboardWillHide:nil];
+  NSNotification *notification = nil;
+  [sut keyboardWillHide:notification];
   
   // then
   expect(sut.called_setNeedsDisplay).to.beTruthy();
@@ -189,7 +192,7 @@
   CGSize actual = [sut sizeThatFits:CGSizeMake(50.0f, 50.0f)];
   
   // then
-  expect(actual.height).to.beGreaterThan(50.0f);
+  expect(actual.height).to.beGreaterThan(30.0f);
 }
 
 - (void)test___drawRect___returnsNO_ifHasText

@@ -60,13 +60,6 @@
   [self startObservingNotifications];
 }
 
-#pragma mark - Custom Accessors
-
-- (Class)viewClass
-{
-  return [UIView class];
-}
-
 #pragma mark - Notifications
 
 - (void)startObservingNotifications
@@ -95,8 +88,7 @@
 
 - (void)textDidChange:(NSNotification *)notification
 {
-  [self invalidateIntrinsicContentSize];
-  [self setNeedsDisplay];
+  [self requestRedraw];
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification
@@ -109,8 +101,14 @@
   [self setNeedsDisplay];
 }
 
-
 #pragma mark - Custom Accessors
+
+
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
+  [super setAttributedText:attributedText];
+  [self setNeedsDisplay];
+}
 
 - (void)setPlaceholder:(NSString *)placeholder
 {
@@ -119,7 +117,13 @@
   }
   
   _placeholder = [placeholder copy];
-  [self setNeedsDisplay];
+  [self requestRedraw];
+}
+
+- (void)setFont:(UIFont *)font
+{
+  [super setFont:font];
+  [self requestRedraw];
 }
 
 - (void)setPlaceholderColor:(UIColor *)placeholderColor
@@ -131,44 +135,54 @@
   _placeholderColor = placeholderColor;
   
   if ([self shouldDrawPlaceholder]) {
-    [self setNeedsDisplay];
+    [self requestRedraw];
   }
 }
 
 - (void)setText:(NSString *)text
 {
   [super setText:text];
+  [self requestRedraw];
+}
+
+- (void)setTextAlignment:(NSTextAlignment)textAlignment
+{
+  [super setTextAlignment:textAlignment];
+  [self requestRedraw];
+}
+
+- (void)requestRedraw
+{
+  [self invalidateIntrinsicContentSize];
   [self setNeedsDisplay];
+  [self setNeedsLayout];
+  [self setNeedsUpdateConstraints];
 }
 
 #pragma mark - Size That Fits
 
-- (CGSize)sizeThatFits:(CGSize)size
-{
-  CGSize contentSize = [super sizeThatFits:size];
-  
-  CGRect rect = [self calculatePlaceholderRectInsetInRect:CGRectMake(0, 0, size.width, size.height)];
-  
-  CGSize placeholderTextSize = [_placeholder boundingRectWithSize:CGSizeMake(rect.size.width, CGFLOAT_MAX)
-                                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                                       attributes:[self placeholderAttributes]
-                                                          context:nil].size;
-  
-  CGSize placeholderSize = CGSizeMake(ceilf(placeholderTextSize.width),
-                                      ceilf(placeholderTextSize.height +
-                                      _placeholderInsets.top +
-                                      _placeholderInsets.bottom));
-    
-  return contentSize.height >= placeholderSize.height ? contentSize : placeholderSize;
+- (CGSize)intrinsicContentSize {
+  return [self sizeThatFits:self.bounds.size];
 }
 
-- (CGSize)intrinsicContentSize {
-  
-  if (self.text.length > 0) {
-    return [super intrinsicContentSize];
+- (CGSize)sizeThatFits:(CGSize)size
+{  
+  if (![self shouldDrawPlaceholder]) {
+    CGSize sizeThatFits = [super sizeThatFits:size];
+    sizeThatFits.width = self.bounds.size.width;
+    return sizeThatFits;
   }
+    
+  CGRect placeholderInsetRect = [self calculatePlaceholderRectInsetInRect:self.frame];
+  CGRect placeholderTextRect = [self.placeholder
+                                boundingRectWithSize:CGSizeMake(placeholderInsetRect.size.width, CGFLOAT_MAX)
+                                options:NSStringDrawingUsesLineFragmentOrigin
+                                attributes:[self placeholderAttributes]
+                                context:nil];
   
-  return [self sizeThatFits:self.frame.size];
+  return CGSizeMake(self.bounds.size.width,
+                    ceilf(placeholderTextRect.size.height) +
+                    self.placeholderInsets.top + self.placeholderInsets.bottom);
 }
 
 - (NSDictionary *)placeholderAttributes
@@ -177,9 +191,15 @@
   paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
   paragraphStyle.alignment = self.textAlignment;
   
-  return @{NSFontAttributeName: self.font,
-           NSParagraphStyleAttributeName: paragraphStyle,
-           NSForegroundColorAttributeName: self.placeholderColor};
+  NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
+  attributes[NSParagraphStyleAttributeName] = paragraphStyle;
+
+  if (self.font) {
+    attributes[NSFontAttributeName] = self.font;
+  }  
+  attributes[NSForegroundColorAttributeName] = self.placeholderColor;
+  
+  return attributes;
 }
 
 #pragma mark - Draw Rect
@@ -192,7 +212,8 @@
     return;
   }
   
-  [self.placeholder drawInRect:[self calculatePlaceholderRectInsetInRect:rect] withAttributes:[self placeholderAttributes]];
+  [self.placeholder drawInRect:[self calculatePlaceholderRectInsetInRect:rect]
+                withAttributes:[self placeholderAttributes]];
 }
 
 - (BOOL)shouldDrawPlaceholder
@@ -202,8 +223,15 @@
 
 - (CGRect)calculatePlaceholderRectInsetInRect:(CGRect)rect
 {
-  CGRect placeholderRect = CGRectInset(rect, _placeholderInsets.left, _placeholderInsets.top);
-  placeholderRect.origin.y += self.contentInset.top;
+  CGRect placeholderRect = rect;
+  placeholderRect.origin.x += (self.placeholderInsets.left + self.contentInset.left);
+  placeholderRect.size.width -= placeholderRect.origin.x;
+  placeholderRect.size.width -= (self.placeholderInsets.right + self.contentInset.right);
+  
+  placeholderRect.origin.y += (self.placeholderInsets.top + self.contentInset.top);
+  placeholderRect.size.height -= placeholderRect.origin.y;
+  placeholderRect.size.height -= (self.placeholderInsets.bottom + self.contentInset.bottom);
+  
   return placeholderRect;
 }
 

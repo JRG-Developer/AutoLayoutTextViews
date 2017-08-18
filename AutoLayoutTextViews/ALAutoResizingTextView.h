@@ -90,7 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @discussion The default value is `0.2`.
  *  If you set this value to `0`, the height will be updated without animation.
  */
-@property (assign, nonatomic) IBInspectable NSTimeInterval autoresizingAnimationDuration;
+@property (assign, nonatomic) IBInspectable NSTimeInterval autoresizingAnimationDuration
+__deprecated_msg("this is now entirely ignored");
 
 /**
  *  The height constraint

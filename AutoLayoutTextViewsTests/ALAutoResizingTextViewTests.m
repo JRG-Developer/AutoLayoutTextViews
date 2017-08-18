@@ -135,11 +135,6 @@
   expect(sut.maximumHeight).to.equal(CGFLOAT_MAX);
 }
 
-- (void)test___commonInit___setsAutoresizingAnimationDuration
-{
-  expect(sut.autoresizingAnimationDuration).to.equal(0.2f);
-}
-
 #pragma mark - awakwFromNib - Tests
 
 - (void)test___awakeFromNib___setsHeightConstraint_whenHeightConstraintFoundBy_firstItem
@@ -163,90 +158,9 @@
 
 #pragma mark - updateConstraints - Tests
 
-- (void)test___updateConstraints___animatesHeightChange_ifAutoresizingAnimationDurationGreaterThanZero
+- (void)test_heightChange_notifies_delegate
 {
   // given
-  [self givenAboutToChangeHeight];
-  [self givenMockViewClass];
-  
-  OCMExpect([viewClass animateWithDuration:sut.autoresizingAnimationDuration
-                                     delay:0.0f
-                                   options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
-                                animations:[OCMArg any]
-                                completion:[OCMArg any]]);
-  
-  // when
-  [sut updateConstraints];
-  
-  // then
-  OCMVerifyAll(viewClass);
-}
-
-- (void)test___updateConstraints___doesNotAnimateHeightChange_ifAutoresizingAnimationDurationEqualsZero
-{
-  [self givenAboutToChangeHeight];
-  [self givenMockViewClass];
-  
-  [[[viewClass reject] ignoringNonObjectArgs] animateWithDuration:sut.autoresizingAnimationDuration
-                                                            delay:0.0f
-                                                          options:UIViewAnimationOptionAllowUserInteraction |
-                                                                  UIViewAnimationOptionBeginFromCurrentState
-                                                       animations:[OCMArg any]
-                                                       completion:[OCMArg any]];
-  
-  sut.autoresizingAnimationDuration = 0;
-  
-  // when
-  [sut updateConstraints];
-  
-  // then
-  OCMVerifyAllWithDelay(viewClass, 0.01);
-}
-
-- (void)test___updateConstraints___doesNotAnimateHieght_ifShouldDrawPlaceholderReturnsYES
-{
-  // given
-  sut.placeholder = @"Placeholder";
-  sut.text = @"";
-  expect([sut shouldDrawPlaceholder]).to.beTruthy();
-  
-  [self givenAboutToChangeHeight];
-  [self givenMockViewClass];
-  
-  [[[viewClass reject] ignoringNonObjectArgs] animateWithDuration:sut.autoresizingAnimationDuration
-                                                            delay:0.0f
-                                                          options:UIViewAnimationOptionAllowUserInteraction |
-   UIViewAnimationOptionBeginFromCurrentState
-                                                       animations:[OCMArg any]
-                                                       completion:[OCMArg any]];
-  
-  // when
-  [sut updateConstraints];
-  
-  // then
-  OCMVerifyAllWithDelay(viewClass, 0.01);
-}
-
-- (void)test_heightChangeWithAnimation_notifies_delegate
-{
-  // given
-  [self givenMockDelegate];
-  [self givenAboutToChangeHeight];
-  
-  [[[delegate expect] ignoringNonObjectArgs] textView:sut willChangeFromHeight:0.0f toHeight:0.0f];
-  [[[delegate expect] ignoringNonObjectArgs] textView:sut didChangeFromHeight:0.0f toHeight:0.0f];
-  
-  // when
-  [sut updateConstraints];
-  
-  // then
-  OCMVerifyAllWithDelay(delegate, 0.1);
-}
-
-- (void)test_heightChangeWithoutAnimation_notifies_delegate
-{
-  // given
-  sut.autoresizingAnimationDuration = 0.0f;
   [self givenMockDelegate];
   [self givenAboutToChangeHeight];
   

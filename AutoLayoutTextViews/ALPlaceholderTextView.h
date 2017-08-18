@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @discussion The default value is `[UIColor lightGrayColor]`.
  */
-@property (strong, nonatomic, nullable) IBInspectable UIColor *placeholderColor;
+@property (strong, nonatomic, nonnull) IBInspectable UIColor *placeholderColor;
 
 /**
  *  The placeholder insets
@@ -115,6 +115,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The preferred rect to draw the placeholder within
  */
 - (CGRect)calculatePlaceholderRectInsetInRect:(CGRect)rect;
+
+
+/**
+ * This method is called to request the view be redrawn.
+ */
+- (void)requestRedraw;
 
 @end
 

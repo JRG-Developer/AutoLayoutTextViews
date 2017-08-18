@@ -31,15 +31,19 @@
   return YES;
 }
 
-- (void)textViewDidChange:(UITextView *)textView {
-  CGPoint contentOffset = self.tableView.contentOffset;
+- (void)textView:(ALAutoResizingTextView *)textView didChangeFromHeight:(CGFloat)oldHeight toHeight:(CGFloat)newHeight {
+  
   [UIView setAnimationsEnabled:NO];
+  
   [self.tableView beginUpdates];
   [self.tableView endUpdates];
-  [self.tableView setContentOffset:contentOffset animated:NO];
+
+  // For some reason, on iOS 10.3.1 (or may be 10.0 and newer?), must call these TWICES...
+  // if only called once, the constraint changes don't get applied for some reason... seems like an Apple bug. :/
   
-  CGRect rect = [self.tableView convertRect:textView.bounds fromView:textView];  
-  [self.tableView scrollRectToVisible:rect animated:NO];
+  // This works fine on iOS 9.X versions, where or not there's 2 calls or just 1 to this method pair.
+  [self.tableView beginUpdates];
+  [self.tableView endUpdates];
   
   [UIView setAnimationsEnabled:YES];
 }
@@ -53,7 +57,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return [self.tableView dequeueReusableCellWithIdentifier:@"ALTextViewCell" forIndexPath:indexPath];
+  ALTextViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ALTextViewCell" forIndexPath:indexPath];
+  cell.textView.tag = indexPath.row;
+  
+  if (indexPath.row == 0) {
+    cell.textView.placeholder = @"Please describe where the incident happened";
+    
+  } else if (indexPath.row == 1) {
+    cell.textView.placeholder = @"This placeholder is just a little too long!";
+  } else {
+    cell.textView.placeholder = nil;
+  }
+  return cell;
 }
 
 @end
