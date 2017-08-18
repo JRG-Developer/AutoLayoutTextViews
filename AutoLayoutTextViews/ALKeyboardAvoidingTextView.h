@@ -24,6 +24,8 @@
 
 #import "ALPlaceholderTextView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  `ALKeyboardAvoidingTextView` adds keyboard avoiding functionality to `ALPlaceholderTextView`.
  */
@@ -35,6 +37,8 @@
  *  @discussion If this outlet isn't connected, it will try to be determined by iterating through its `superview.constraints`.
  *  @warning If you do not explicitly set this outlet, and it's *not* able to be determined, this class will throw a runtime exception.
  */
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraintToBottomLayoutGuide;
+@property (weak, nonatomic, null_unspecified) IBOutlet NSLayoutConstraint *bottomConstraintToBottomLayoutGuide;
 
 @end
+
+NS_ASSUME_NONNULL_END

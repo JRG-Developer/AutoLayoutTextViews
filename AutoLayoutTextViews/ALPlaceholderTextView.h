@@ -24,29 +24,41 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  `ALPlaceholderTextView` adds a placeholder to `UITextView`
  */
 @interface ALPlaceholderTextView : UITextView
 
 /**
+ *  This is a proxy property for setting `layer.borderColor`.
+ */
+@property (strong, nonatomic, nullable) IBInspectable UIColor *borderColor;
+
+/**
+ *  This is a proxy property for setting `layer.borderWidth`.
+ */
+@property (assign, nonatomic) IBInspectable CGFloat borderWidth;
+
+/**
  *	The string that is displayed when there is no other text in the text field
  *
  *  @discussion The default value is `nil`.
  */
-@property (strong, nonatomic) IBInspectable NSString *placeholder;
+@property (strong, nonatomic, nullable) IBInspectable NSString *placeholder;
 
 /**
  *	The color of the placeholder
  *
  *  @discussion The default value is `[UIColor lightGrayColor]`.
  */
-@property (strong, nonatomic) IBInspectable UIColor *placeholderColor;
+@property (strong, nonatomic, nullable) IBInspectable UIColor *placeholderColor;
 
 /**
  *  The placeholder insets
  *
- *  @discussion The default value is set to `UIEdgeInsetsMake(8.0f, 4.0f, 0.0f, 0.0f)`.
+ *  @discussion The default value is set to `UIEdgeInsetsMake(8.0f, 4.0f, 8.0f, 0.0f)`.
  */
 @property (assign, nonatomic, readwrite) IBInspectable UIEdgeInsets placeholderInsets;
 
@@ -105,3 +117,5 @@
 - (CGRect)calculatePlaceholderRectInsetInRect:(CGRect)rect;
 
 @end
+
+NS_ASSUME_NONNULL_END
